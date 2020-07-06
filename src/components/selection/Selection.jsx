@@ -1,24 +1,25 @@
 import React, { Component, useEffect, useState } from "react";
 import { NativeSelect, FormControl } from "@material-ui/core";
-import { fetchUsers } from "./../../api/index";
+import { fetchCities } from "./../../api/index";
 const Selection = () => {
-  const [usersList, setUsersList] = useState([]);
+  const [citiesList, setCitiesList] = useState([]);
   useEffect(() => {
-    const fetchedUsers = async () => {
-      setUsersList(await fetchUsers());
+    const fetchedCities = async () => {
+      setCitiesList(await fetchCities());
     };
-    fetchedUsers();
+    fetchedCities();
   });
 
   return (
     <FormControl>
       <NativeSelect>
-        <option value="manik">Manik</option>
-        {usersList.map((user, i) => (
-          <option key={i} value={user}>
-            {user}
-          </option>
-        ))}
+        <option value="manik">Choose a city...</option>
+        {citiesList &&
+          citiesList.map((city, i) => (
+            <option key={i} value={city}>
+              {city}
+            </option>
+          ))}
       </NativeSelect>
     </FormControl>
   );
