@@ -8,22 +8,19 @@ const Selection = () => {
       setCitiesList(await fetchCities());
     };
     fetchedCities();
-  });
+  }, [setCitiesList]);
 
   return (
-    citiesList && (
-      <FormControl>
-        <NativeSelect>
-          <option value="manik">Choose a city...</option>
-          {citiesList &&
-            citiesList.map((city, i) => (
-              <option key={i} value={city}>
-                {city}
-              </option>
-            ))}
-        </NativeSelect>
-      </FormControl>
-    )
+    <FormControl>
+      <NativeSelect>
+        <option value="manik">Choose a city...</option>
+        {citiesList.map((city, i) => (
+          <option key={i} value={city}>
+            {city}
+          </option>
+        ))}
+      </NativeSelect>
+    </FormControl>
   );
 };
 
