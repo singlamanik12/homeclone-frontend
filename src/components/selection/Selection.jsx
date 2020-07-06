@@ -1,27 +1,26 @@
 import React, { Component, useEffect, useState } from "react";
 import { NativeSelect, FormControl } from "@material-ui/core";
 import { fetchCities } from "./../../api/index";
-const Selection = () => {
-  const [citiesList, setCitiesList] = useState([]);
-  useEffect(() => {
-    const fetchedCities = async () => {
-      setCitiesList(await fetchCities());
-    };
-    fetchedCities();
-  }, [setCitiesList]);
+class Selection extends Component {
+  state = { citiesList: [] };
 
-  return (
-    <FormControl>
-      <NativeSelect>
-        <option value="manik">Choose a city...</option>
-        {citiesList.map((city, i) => (
-          <option key={i} value={city}>
-            {city}
-          </option>
-        ))}
-      </NativeSelect>
-    </FormControl>
-  );
-};
+  componentWillMount = async () => {
+    const citiesList = await fetchCities();
+    this.setState({ citiesList });
+  };
+  render() {
+    return (
+      <FormControl>
+        <NativeSelect>
+          <option value="manik">Choose a city...</option>
+          {this.state.citiesList &&
+            this.state.citiesList.map((city) => (
+              <option value={city}>{city}</option>
+            ))}
+        </NativeSelect>
+      </FormControl>
+    );
+  }
+}
 
 export default Selection;
