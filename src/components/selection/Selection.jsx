@@ -10,17 +10,18 @@ class Selection extends Component {
     this.setState({ citiesList });
   };
   render() {
-    return (
-      <FormControl>
-        <NativeSelect>
-          <option value="manik">Choose a city...</option>
-          {this.state.citiesList &&
-            this.state.citiesList.map((city) => (
+    if (this.state.citiesList !== null) {
+      return (
+        <FormControl>
+          <NativeSelect>
+            <option value="manik">Choose a city...</option>
+            {this.state.citiesList.map((city) => (
               <option value={city}>{city}</option>
             ))}
-        </NativeSelect>
-      </FormControl>
-    );
+          </NativeSelect>
+        </FormControl>
+      );
+    }
   }
 }
 
