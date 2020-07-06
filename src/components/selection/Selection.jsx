@@ -4,7 +4,7 @@ import { fetchCities } from "./../../api/index";
 class Selection extends Component {
   state = { citiesList: [] };
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const citiesList = await fetchCities();
     this.setState({ citiesList });
   };
