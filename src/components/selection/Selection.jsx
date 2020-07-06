@@ -1,4 +1,10 @@
-import React, { Component, useEffect, useState, Suspense } from "react";
+import React, {
+  Component,
+  useEffect,
+  useState,
+  Suspense,
+  ConcurrentMode,
+} from "react";
 
 import { fetchCities } from "./../../api/index";
 import RenderOptions from "./RenderOptions";
@@ -13,9 +19,11 @@ class Selection extends Component {
 
   render() {
     return (
-      <Suspense fallback={<h1>Loading posts...</h1>}>
-        <RenderOptions citiesList={this.state.citiesList} />
-      </Suspense>
+      <ConcurrentMode>
+        <Suspense fallback={<h1>Loading posts...</h1>}>
+          <RenderOptions citiesList={this.state.citiesList} />
+        </Suspense>
+      </ConcurrentMode>
     );
   }
 }
