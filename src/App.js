@@ -5,6 +5,7 @@ import { Selection } from "./components";
 
 class App extends Component {
   state = {};
+
   render() {
     return <Selection />;
   }
