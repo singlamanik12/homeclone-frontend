@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Selection from "./components";
+import { Selection } from "./components";
 
 class App extends Component {
   state = {};
