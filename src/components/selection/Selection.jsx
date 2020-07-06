@@ -6,6 +6,7 @@ class Selection extends Component {
 
   componentDidMount = async () => {
     const citiesList = await fetchCities();
+    console.log(citiesList);
     this.setState({ citiesList });
   };
   render() {
