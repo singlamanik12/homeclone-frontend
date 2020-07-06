@@ -1,6 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
-import { NativeSelect, FormControl } from "@material-ui/core";
+import React, { Component, useEffect, useState, Suspense } from "react";
+
 import { fetchCities } from "./../../api/index";
+import RenderOptions from "./RenderOptions";
 class Selection extends Component {
   state = { citiesList: [] };
 
@@ -9,19 +10,12 @@ class Selection extends Component {
     console.log(citiesList);
     this.setState({ citiesList });
   };
+
   render() {
-    if (this.state.citiesList === null) {
-      this.componentDidMount();
-    }
     return (
-      <FormControl>
-        <NativeSelect>
-          <option value="manik">Choose a city...</option>
-          {this.state.citiesList.map((city) => (
-            <option value={city}>{city}</option>
-          ))}
-        </NativeSelect>
-      </FormControl>
+      <Suspense fallback={<h1>Loading posts...</h1>}>
+        <RenderOptions citiesList={this.state.citiesList} />
+      </Suspense>
     );
   }
 }
