@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { NativeSelect, FormControl } from "@material-ui/core";
-const RenderOptions = ({ citiesList }) => {
+const RenderOptions = ({ data }) => {
   return (
     <FormControl>
       <NativeSelect>
         <option value="manik">Choose a city...</option>
-        {citiesList.map((city) => (
+        {data.map(({ city }) => (
           <option value={city}>{city}</option>
         ))}
       </NativeSelect>

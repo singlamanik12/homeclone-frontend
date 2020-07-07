@@ -1,29 +1,27 @@
-import React, {
-  Component,
-  useEffect,
-  useState,
-  Suspense,
-  ConcurrentMode,
-} from "react";
+import React, { Component, useEffect, useState, Suspense } from "react";
 
 import { fetchCities } from "./../../api/index";
 import RenderOptions from "./RenderOptions";
 class Selection extends Component {
-  state = { citiesList: [] };
+  state = { data: null, citiesList: [], loaded: false };
 
   componentDidMount = async () => {
-    const citiesList = await fetchCities();
-    console.log(citiesList);
-    this.setState({ citiesList });
+    fetch("http://apiforrenting.herokuapp.com/cities", {
+      method: "GET",
+    }).then((res) =>
+      res.json().then((result) => this.setState({ data: result, loaded: true }))
+    );
   };
 
   render() {
     return (
-      <ConcurrentMode>
-        <Suspense fallback={<h1>Loading posts...</h1>}>
-          <RenderOptions citiesList={this.state.citiesList} />
-        </Suspense>
-      </ConcurrentMode>
+      <React.Fragment>
+        {this.state.loaded ? (
+          <RenderOptions data={this.state.data} />
+        ) : (
+          "Loading..."
+        )}
+      </React.Fragment>
     );
   }
 }
