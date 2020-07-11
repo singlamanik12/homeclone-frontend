@@ -3,16 +3,26 @@ import Joi, { abort } from "joi-browser";
 import Form from "./Form";
 import { Link } from "react-router-dom";
 import GoogleButton from "react-google-button";
+import * as logService from "../../services/loginService";
 class LoginForm extends Form {
   state = { data: { email: "", password: "" }, errors: {} };
   schema = {
-    //   username: Joi.string().min(5).required().label("Username"),
     password: Joi.string().min(5).required().label("Password"),
-    //   confirmpassword: Joi.string().min(5).required().label("Confirm Password"),
     email: Joi.string().email().required().label("Email"),
   };
   doSubmit = async () => {
-    window.location = "/";
+    try {
+      const { data: jwt } = await logService.login(this.state.data);
+      console.log(jwt);
+      localStorage.setItem("token", jwt);
+      window.location = "/";
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        const errors = { ...this.state.errors };
+        errors.email = error.response.data;
+        this.setState({ errors });
+      }
+    }
   };
   render() {
     return (

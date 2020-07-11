@@ -3,6 +3,7 @@ import Joi, { abort } from "joi-browser";
 import Form from "./Form";
 import { Link } from "react-router-dom";
 import GoogleButton from "react-google-button";
+import * as registerService from "../../services/registrationService";
 class RegisterForm extends Form {
   state = { data: { username: "", email: "", password: "" }, errors: {} };
   schema = {
@@ -12,7 +13,16 @@ class RegisterForm extends Form {
     email: Joi.string().email().required().label("Email"),
   };
   doSubmit = async () => {
-    window.location = "/";
+    try {
+      const response = await registerService.register(this.state.data);
+      console.log(response);
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        const errors = { ...this.state.errors };
+        errors.email = error.response.data;
+        this.setState({ errors });
+      }
+    }
   };
   render() {
     return (

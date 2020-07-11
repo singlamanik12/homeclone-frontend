@@ -3,11 +3,12 @@ import styles from "./Selection.module.css";
 import { fetchCities } from "./../../api/index";
 import RenderOptions from "./RenderOptions";
 import Grid from "@material-ui/core/Grid";
+import { url } from "../../tools/config.json";
 class Selection extends Component {
   state = { data: null, citiesList: [], loaded: false };
 
   componentDidMount = async () => {
-    fetch("http://apiforrenting.herokuapp.com/cities", {
+    fetch(url + "cities", {
       method: "GET",
     }).then((res) =>
       res.json().then((result) => this.setState({ data: result, loaded: true }))
