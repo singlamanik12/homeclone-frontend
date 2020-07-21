@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://apiforrenting.herokuapp.com/cities";
+const url = "https://singlamanik12.github.io/cities/ca.json";
 export const fetchCities = async () => {
   try {
     const { data } = await axios.get(url);

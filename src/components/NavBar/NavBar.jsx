@@ -20,10 +20,6 @@ const NavBar = ({ user }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="navbar-nav">
-            <NavLink className="nav-item nav-link" to="/">
-              Home
-            </NavLink>
-
             <NavLink className="nav-item nav-link" to="/postings">
               Postings
             </NavLink>
