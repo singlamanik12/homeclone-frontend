@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import jwtDecode from "jwt-decode";
 import { Selection, NavBar } from "./components";
-import { Route, Redirect, Switch, NavLink } from "react-router-dom";
+import { Route, Redirect, Switch, NavLink, Link } from "react-router-dom";
 import RegisterForm from "./components/Form/RegisterForm";
 import LoginForm from "./components/Form/LoginForm";
 import Forgot from "./components/Form/Forgot";
@@ -14,12 +14,13 @@ import SideBar from "./components/SideBar/SideBar";
 import "./components/SideBar/SideBar.Module.css";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-
 import { Typography } from "@material-ui/core";
 import SignupUI from "./components/Form/SignupUI";
+import Postings from "./components/postings/Postings";
+import CreatePosting from "./components/NewPosting/CreatePosting";
 class App extends Component {
   state = {};
-  componentWillMount() {
+  componentDidMount() {
     try {
       const jwt = localStorage.getItem("token");
       const user = jwtDecode(jwt);
@@ -62,9 +63,11 @@ class App extends Component {
                   xs={4}
                   lg={2}
                 >
-                  <Button variant="contained" color="primary">
-                    Create
-                  </Button>
+                  <Link to="/create">
+                    <Button variant="contained" color="primary">
+                      Create
+                    </Button>
+                  </Link>
                 </Grid>
               </Grid>
 
@@ -72,7 +75,7 @@ class App extends Component {
                 <Grid item xs={12}>
                   <Switch>
                     <Route path="/register" component={RegisterForm} />
-                    <Route path="/postings" component={Selection} />
+                    <Route path="/postings" component={Postings} />
                     <Route path="/login" component={LoginForm} />
                     <Route path="/forgot" component={Forgot} />
                     <Route
@@ -82,6 +85,7 @@ class App extends Component {
                     <Route path="/confirmation/:id" component={Confirmation} />
                     <Route path="/logout" component={Logout} />
                     <Route path="/signup" component={SignupUI} />
+                    <Route path="/create" component={CreatePosting} />
                     <Redirect from="/" exact to="/postings" />
                     <Redirect to="/not-found"></Redirect>
                   </Switch>

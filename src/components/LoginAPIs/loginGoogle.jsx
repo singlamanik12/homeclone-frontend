@@ -5,12 +5,12 @@ import { Typography } from "@material-ui/core";
 const GoLogin = () => {
   const ButtonText = <Typography variant="h6">Sign up with Google</Typography>;
   const responseGoogle = async (response) => {
-    const data = { username: "", email: "", password: "" };
+    const data = { username: "", email: "", password: "default" };
     data.username = response.profileObj.name;
     data.email = response.profileObj.email;
     try {
       // console.log(await registerService.register(data));
-      const { user: jwt } = await registerService.register(data);
+      const { data: jwt } = await registerService.register(data);
       console.log(jwt);
       localStorage.setItem("token", jwt);
       window.location = "/";
