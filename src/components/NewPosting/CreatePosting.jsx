@@ -62,7 +62,7 @@ class CreatePosting extends Component {
   };
   handleDeleteImage = async (link) => {
     const images = this.state.images.filter((image) => image !== link);
-    await http.post("http://apiforrenting.herokuapp.com/delete", {
+    await http.post("https://apiforrenting.herokuapp.com/delete", {
       link: link,
     });
     this.setState({ images });
@@ -70,7 +70,7 @@ class CreatePosting extends Component {
   handleSubmitPosting = async () => {
     const { email } = getCurrentUserEmail();
     console.log(this.state.images);
-    await http.post("http://apiforrenting.herokuapp.com/newposting", {
+    await http.post("https://apiforrenting.herokuapp.com/newposting", {
       email: email,
       typeOfHousing: this.state.typeOfHousing,
       totalPersonRequired: this.state.totalPersonRequired,
@@ -104,7 +104,7 @@ class CreatePosting extends Component {
       }
     }
     http
-      .post("http://apiforrenting.herokuapp.com/upload", datas, {
+      .post("https://apiforrenting.herokuapp.com/upload", datas, {
         headers: {
           "Content-Type": `multipart/form-data; boundary=${datas._boundary}`,
         },
