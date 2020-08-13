@@ -6,14 +6,14 @@ import Select from "@material-ui/core/Select";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { makeStyles } from "@material-ui/core/styles";
+
 import TextField from "@material-ui/core/TextField";
 class PostingOutline extends Component {
-  state = { verified: "true" };
+  state = {};
 
   render() {
-    const { handleChange, values, nextStep, verified } = this.props;
-    let verifies;
+    const { handleChange, values, nextStep } = this.props;
+
     return (
       <>
         <Grid container>

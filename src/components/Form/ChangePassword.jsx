@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Joi, { abort } from "joi-browser";
+import React from "react";
+import Joi from "joi-browser";
 import Form from "./Form";
 import * as changeService from "../../services/changeService";
 class ChangePassword extends Form {

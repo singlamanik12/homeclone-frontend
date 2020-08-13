@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import jwtDecode from "jwt-decode";
-import { Selection, NavBar } from "./components";
 import { Route, Redirect, Switch, NavLink, Link } from "react-router-dom";
 import RegisterForm from "./components/Form/RegisterForm";
 import LoginForm from "./components/Form/LoginForm";
@@ -18,6 +16,7 @@ import { Typography } from "@material-ui/core";
 import SignupUI from "./components/Form/SignupUI";
 import Postings from "./components/postings/Postings";
 import CreatePosting from "./components/NewPosting/CreatePosting";
+import OpenPosting from "./components/postings/OpenPosting";
 class App extends Component {
   state = {};
   componentDidMount() {
@@ -27,73 +26,49 @@ class App extends Component {
       this.setState({ user });
     } catch (ex) {}
   }
+
   render() {
     return (
       <React.Fragment>
-        <div id="App">
-          <Grid container direction="column">
-            <div style={{ marginBlockStart: "20px" }}>
-              <Grid item xs={12} container>
-                <Grid item xs={2}>
-                  <SideBar
-                    pageWrapId={"page-wrap"}
-                    outerContainerId={"App"}
-                  ></SideBar>
-                </Grid>
-                <Grid item xs={6} lg={8}>
-                  <Typography align="center" variant="h4">
-                    <NavLink
-                      style={{ color: "Black" }}
-                      className="nav-item nav-link"
-                      to="/"
-                    >
-                      <Typography
-                        variant="h4"
-                        style={{ fontFamily: "Pacifico", color: "#6666ff" }}
-                      >
-                        RoofTail
-                      </Typography>
-                    </NavLink>
-                  </Typography>
-                </Grid>
-                <Grid
-                  style={{ marginTop: "9px" }}
-                  justify="flex-end"
-                  item
-                  xs={4}
-                  lg={2}
-                >
-                  <Link to="/create">
-                    <Button variant="contained" color="primary">
-                      Create
-                    </Button>
-                  </Link>
-                </Grid>
-              </Grid>
+        <Grid container direction="column">
+          <Grid item xs={12} container>
+            <SideBar></SideBar>
 
-              <Grid item xs={12} container>
-                <Grid item xs={12}>
-                  <Switch>
-                    <Route path="/register" component={RegisterForm} />
-                    <Route path="/postings" component={Postings} />
-                    <Route path="/login" component={LoginForm} />
-                    <Route path="/forgot" component={Forgot} />
-                    <Route
-                      path="/change_password/:id"
-                      component={ChangePassword}
-                    />
-                    <Route path="/confirmation/:id" component={Confirmation} />
-                    <Route path="/logout" component={Logout} />
-                    <Route path="/signup" component={SignupUI} />
-                    <Route path="/create" component={CreatePosting} />
-                    <Redirect from="/" exact to="/postings" />
-                    <Redirect to="/not-found"></Redirect>
-                  </Switch>
-                </Grid>
-              </Grid>
-            </div>
+            <Typography variant="h4">
+              <NavLink
+                style={{ color: "Black" }}
+                className="nav-item nav-link"
+                to="/"
+              >
+                <Typography
+                  variant="h4"
+                  style={{ fontFamily: "Pacifico", color: "black" }}
+                >
+                  ROOFTAIL
+                </Typography>
+              </NavLink>
+            </Typography>
           </Grid>
-        </div>
+
+          <Grid item xs={12} container>
+            <Grid item xs={12}>
+              <Switch>
+                <Route path="/register" component={RegisterForm} />
+                <Route path="/home" component={Postings} />
+                <Route path="/login" component={LoginForm} />
+                <Route path="/forgot" component={Forgot} />
+                <Route path="/change_password/:id" component={ChangePassword} />
+                <Route path="/confirmation/:id" component={Confirmation} />
+                <Route path="/logout" component={Logout} />
+                <Route path="/signup" component={SignupUI} />
+                <Route path="/create" component={CreatePosting} />
+                <Route path="/posting_details/:id" component={OpenPosting} />
+                <Redirect from="/" exact to="/home" />
+                <Redirect to="/not-found"></Redirect>
+              </Switch>
+            </Grid>
+          </Grid>
+        </Grid>
       </React.Fragment>
     );
   }

@@ -1,14 +1,6 @@
-import React, { Component } from "react";
-import data from "../../tools/cities.json";
-import {
-  NativeSelect,
-  FormControl,
-  Grid,
-  MenuItem,
-  InputLabel,
-  Select,
-} from "@material-ui/core";
-import axios from "axios";
+import React from "react";
+
+import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
 
 const States = ({ handleChange, value }) => {
   return (

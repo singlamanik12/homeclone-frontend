@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Joi, { abort } from "joi-browser";
+import React from "react";
+import Joi from "joi-browser";
 import { Toast } from "react-bootstrap";
 import * as forgotService from "../../services/forgotService";
 import Form from "./Form";

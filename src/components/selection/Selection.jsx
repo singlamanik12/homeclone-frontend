@@ -1,21 +1,12 @@
-import React, { Component, useEffect, useState, Suspense } from "react";
-import styles from "./Selection.module.css";
-import { fetchCities } from "./../../api/index";
+import React, { Component } from "react";
+
 import RenderOptions from "./Cities";
 import Grid from "@material-ui/core/Grid";
-import { url } from "../../tools/config.json";
-import {
-  NativeSelect,
-  FormControl,
-  MenuItem,
-  InputLabel,
-  Select,
-} from "@material-ui/core";
+
+import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
+import { Link } from "react-router-dom";
 class Selection extends Component {
   state = { data: null, citiesList: [], loaded: false };
-  constructor(props) {
-    super(props);
-  }
 
   handleChange = (e) => {};
 
@@ -27,14 +18,14 @@ class Selection extends Component {
           xs={12}
           container
           direction="row"
-          justify="center"
+          // justify="center"
           style={{ marginTop: "30px" }}
         >
-          <Grid item xs={2}></Grid>
+          {/* <Grid item xs={1}></Grid> */}
           <Grid item xs={4}>
             <RenderOptions
-              // data={this.state.data}
-              handleChange={this.handleChange}
+              value={this.props.city}
+              handleChange={this.props.handleChange}
             />
           </Grid>
 
@@ -46,12 +37,13 @@ class Selection extends Component {
               <Select
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
-                value={""}
-                // onChange={handleChange}
+                value={this.props.region}
+                onChange={this.props.handleChange}
                 label="Region"
+                name="region"
               >
-                <MenuItem value="">
-                  <em>None</em>
+                <MenuItem value="All">
+                  <em>Any</em>
                 </MenuItem>
                 <MenuItem value={"North"}>North</MenuItem>
                 <MenuItem value={"South"}>South</MenuItem>
@@ -60,7 +52,19 @@ class Selection extends Component {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={2}></Grid>
+          <Grid item xs={1} />
+          <Grid item xs={3}>
+            <Link to="/create">
+              <button
+                type="button"
+                class="btn btn-primary"
+                onClick={this.createPosting}
+                style={{ float: "right", marginTop: "8px" }}
+              >
+                Create
+              </button>
+            </Link>
+          </Grid>
         </Grid>
       </React.Fragment>
     );

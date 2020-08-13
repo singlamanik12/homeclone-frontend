@@ -1,11 +1,9 @@
-import React, { Component } from "react";
-import Joi, { abort } from "joi-browser";
+import React from "react";
+import Joi from "joi-browser";
 import Form from "./Form";
 import { Link } from "react-router-dom";
-import GoogleButton from "react-google-button";
 import * as registerService from "../../services/registrationService";
-import GoLogin from "../LoginAPIs/loginGoogle";
-import FaLogin from "../LoginAPIs/loginFacebook";
+
 import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 class RegisterForm extends Form {

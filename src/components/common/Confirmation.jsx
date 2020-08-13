@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "../Form/Form";
 import * as confirmService from "../../services/confirmService";
 class Confirmation extends Form {

@@ -1,92 +1,73 @@
 import React, { Component } from "react";
-import ImageUploader from "react-images-upload";
 import Button from "@material-ui/core/Button";
-import $ from "jquery";
-import http from "../../services/httpServices";
+import Fab from "@material-ui/core/Fab";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import Grid from "@material-ui/core/Grid";
+import ImagePreview from "./ImagePreview";
+import UploadMessage from "./UploadMessage";
+import SubmitPosting from "./SubmitPosting";
+
 class ImageUpload extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      images: [],
-      selectedFile: null,
-      selectedFiles: null,
-    };
-  }
-
-  multipleFileChangedHandler = (event) => {
-    this.setState({
-      selectedFiles: event.target.files,
-    });
-    console.log(event.target.files);
-  };
-
-  multipleFileUploadHandler = () => {
-    const datas = new FormData();
-    let selectedFiles = this.state.selectedFiles;
-
-    if (selectedFiles) {
-      for (let i = 0; i < selectedFiles.length; i++) {
-        datas.append("file", selectedFiles[i], selectedFiles[i].name);
-      }
-    }
-    http
-      .post("http://apiforrenting.herokuapp.com/upload", datas, {
-        headers: {
-          "Content-Type": `multipart/form-data; boundary=${datas._boundary}`,
-        },
-      })
-      .then((response) => {
-        this.setState({
-          images: [...this.state.images, [response.data]],
-        });
-      });
-  };
   render() {
+    const {
+      images,
+      multipleFileChangedHandler,
+      handleDeleteImage,
+      handleSubmitPosting,
+      prevStep,
+    } = this.props;
     return (
-      <div>
-        <div className="container">
-          {/* For Alert box*/}
-          <div id="oc-alert-container"></div>
+      <Grid container>
+        <Grid item lg={3} xs={1} container></Grid>
+        <Grid item lg={9} xs={10} container direction="column">
+          <p>Please upload at least 4 images of your place</p>
+          <Grid item>
+            <input
+              style={{ display: "none" }}
+              accept="image/*"
+              type="file"
+              multiple
+              id="contained-button-file"
+              onChange={multipleFileChangedHandler}
+            />
 
-          {/* Multiple File Upload */}
-          <div
-            className="card border-light mb-3"
-            style={{ boxShadow: "0 5px 10px 2px rgba(195,192,192,.5)" }}
-          >
-            <div className="card-header">
-              <h3 style={{ color: "#555", marginLeft: "12px" }}>
-                Upload Muliple Images
-              </h3>
-              <p className="text-muted" style={{ marginLeft: "12px" }}>
-                Upload Size: 400px x 400px ( Max 2MB )
-              </p>
-            </div>
-            <div className="card-body">
-              <p className="card-text">
-                Please upload the Gallery Images for your gallery
-              </p>
-              <input
-                type="file"
-                multiple
-                onChange={this.multipleFileChangedHandler}
-              />
-              <div className="mt-5">
-                <button
-                  className="btn btn-info"
-                  onClick={this.multipleFileUploadHandler}
-                >
-                  Upload!
-                </button>
-                <img
-                  src={this.state.images[0]}
-                  height="100px"
-                  width="100px"
-                ></img>
+            <label htmlFor="contained-button-file">
+              <Button variant="contained" color="primary" component="span">
+                Upload
+              </Button>
+            </label>
+          </Grid>
+          <Grid item container xs={12}>
+            {images.length > 0 ? (
+              <>
+                <ImagePreview
+                  images={images}
+                  handleDeleteImage={handleDeleteImage}
+                />
+              </>
+            ) : (
+              <UploadMessage></UploadMessage>
+            )}
+          </Grid>
+
+          <Grid item xs={12} container style={{ marginBottom: "0px" }}>
+            <Grid item>
+              <div onClick={prevStep}>
+                <Fab color="primary" aria-label="add" disabled={false}>
+                  <ArrowBackIcon fontSize="large" />
+                </Fab>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </Grid>
+            <Grid item xs={6} lg={8} />
+            <Grid item>
+              <SubmitPosting
+                images={images}
+                handleSubmitPosting={handleSubmitPosting}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     );
   }
 }

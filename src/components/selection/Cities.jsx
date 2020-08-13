@@ -1,14 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import data from "../../tools/cities.json";
-import {
-  NativeSelect,
-  FormControl,
-  Grid,
-  MenuItem,
-  InputLabel,
-  Select,
-} from "@material-ui/core";
-import axios from "axios";
+import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
 
 const RenderOptions = ({ handleChange, value }) => {
   return (
@@ -23,8 +15,13 @@ const RenderOptions = ({ handleChange, value }) => {
           onChange={handleChange}
           label="City"
         >
-          {data.map((data) => (
-            <MenuItem value={data.city}>{data.city}</MenuItem>
+          <MenuItem value="All">
+            <em>All</em>
+          </MenuItem>
+          {data.map((data, index) => (
+            <MenuItem key={index} value={data.city}>
+              {data.city}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
