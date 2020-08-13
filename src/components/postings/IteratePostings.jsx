@@ -9,7 +9,7 @@ class IteratePostings extends Component {
     console.log(this.state.data);
 
     const { data } = await http.get(
-      `http://apiforrenting.herokuapp.com/postings?city=${this.props.city}&region=${this.props.region}&start=${this.props.page}`
+      `https://apiforrenting.herokuapp.com/postings?city=${this.props.city}&region=${this.props.region}&start=${this.props.page}`
     );
     console.log(data);
     this.setState({ data });
