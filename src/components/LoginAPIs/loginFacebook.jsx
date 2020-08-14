@@ -18,7 +18,7 @@ const FaLogin = () => {
   };
   return (
     <FacebookLogin
-      appId="2703447153271553"
+      appId="1017854762007899"
       //autoLoad
       fields="name,email,picture"
       // onClick={componentClicked}
