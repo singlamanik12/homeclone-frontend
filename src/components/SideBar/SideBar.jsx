@@ -5,6 +5,9 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Button from "@material-ui/core/Button";
 import LoggedIn from "./LoggedIn";
 import LoggedOff from "./LoggedOff";
+import MenuIcon from "@material-ui/icons/Menu";
+import IconButton from "@material-ui/core/IconButton";
+import AppBar from "@material-ui/core/AppBar";
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -52,11 +55,21 @@ export default function SwipeableTemporaryDrawer() {
       <div>
         {["left"].map((anchor) => (
           <React.Fragment key={anchor}>
-            <img
-              style={{ cursor: "pointer" }}
+            {/* <img
+              style={{ cursor: "pointer", width: "40px" }}
               src={require("./menu.png")}
               onClick={toggleDrawer(anchor, true)}
-            />
+            /> */}
+
+            <IconButton
+              style={{ margin: "5px" }}
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer(anchor, true)}
+              edge="start"
+            >
+              <MenuIcon style={{ color: "white" }} />
+            </IconButton>
 
             <SwipeableDrawer
               PaperProps={{ elevation: 1, variant: "outlined" }}

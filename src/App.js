@@ -17,6 +17,9 @@ import SignupUI from "./components/Form/SignupUI";
 import Postings from "./components/postings/Postings";
 import CreatePosting from "./components/NewPosting/CreatePosting";
 import OpenPosting from "./components/postings/OpenPosting";
+import AppBar from "@material-ui/core/AppBar";
+
+import { HideOnScroll } from "./HideOnScroll";
 class App extends Component {
   state = {};
   componentDidMount() {
@@ -31,24 +34,35 @@ class App extends Component {
     return (
       <React.Fragment>
         <Grid container direction="column">
-          <Grid item xs={12} container>
-            <SideBar></SideBar>
+          <AppBar
+            position="static"
+            color="transparent"
+            style={{ backgroundColor: "black" }}
+          >
+            <Grid item xs={12} container>
+              <SideBar></SideBar>
 
-            <Typography variant="h4">
-              <NavLink
-                style={{ color: "Black" }}
-                className="nav-item nav-link"
-                to="/"
-              >
-                <Typography
-                  variant="h4"
-                  style={{ fontFamily: "Pacifico", color: "black" }}
+              <Typography variant="h4">
+                <NavLink
+                  style={{ color: "Black" }}
+                  className="nav-item nav-link"
+                  to="/"
                 >
-                  ROOFTAIL
-                </Typography>
-              </NavLink>
-            </Typography>
-          </Grid>
+                  <Typography
+                    variant="h4"
+                    style={{
+                      color: "white",
+                      fontSize: "23px",
+                      margin: "5px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    rooftail
+                  </Typography>
+                </NavLink>
+              </Typography>
+            </Grid>
+          </AppBar>
 
           <Grid item xs={12} container>
             <Grid item xs={12}>

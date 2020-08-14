@@ -21,7 +21,7 @@ const GoLogin = () => {
 
   return (
     <GoogleLogin
-      clientId="329628474320-ulcmikk1cb06e30bolofh27632g5a0rl.apps.googleusercontent.com"
+      clientId="329628474320-37m0qh0d70t8pr1cgj1uma9o23nhg7dg.apps.googleusercontent.com"
       buttonText={ButtonText}
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
