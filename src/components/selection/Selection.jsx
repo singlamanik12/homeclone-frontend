@@ -62,8 +62,7 @@ class Selection extends Component {
               role="alert"
               style={{ fontSize: "15px", padding: "1px" }}
             >
-              Want to post your place ,Click here{" "}
-              <Link to="/create">Create</Link>
+              Want to post your place ,<Link to="/create">Click here</Link>
               {/* <button
             type="button"
             className="close"
