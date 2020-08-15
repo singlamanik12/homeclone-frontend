@@ -22,7 +22,7 @@ const FaLogin = () => {
       //autoLoad
       fields="name,email,picture"
       // onClick={componentClicked}
-
+      isMobile="true"
       callback={responseFacebook}
     />
   );
