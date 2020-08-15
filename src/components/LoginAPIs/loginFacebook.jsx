@@ -18,11 +18,11 @@ const FaLogin = () => {
   };
   return (
     <FacebookLogin
-      appId="317828276027238"
+      appId="1941888859275550"
       //autoLoad
       fields="name,email,picture"
       // onClick={componentClicked}
-      isMobile="true"
+
       callback={responseFacebook}
     />
   );
