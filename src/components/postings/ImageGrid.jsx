@@ -5,7 +5,7 @@ class ImageGrid extends Component {
 
   render() {
     const setting = {
-      width: "700px",
+      width: "100%",
       height: ["200px", "170px"],
       layout: [2, 3],
       photos: [
