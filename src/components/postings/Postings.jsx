@@ -4,7 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import IteratePostings from "./IteratePostings";
 import OpenPosting from "./OpenPosting";
 import Selection from "../selection/Selection";
-import CopyrightIcon from "@material-ui/icons/Copyright";
+
+import Footer from "../common/footer";
 class Postings extends Component {
   state = {
     city: "All",
@@ -16,35 +17,35 @@ class Postings extends Component {
   };
   render() {
     return (
-      <Grid container>
-        <Grid item xs={12}>
-          <Selection
-            handleChange={this.handleChange}
-            city={this.state.city}
-            region={this.state.region}
-          />
-        </Grid>
-        <Grid item xs={12} container>
-          <Switch>
-            <Route
-              path="/home/postings"
-              component={() => (
-                <IteratePostings
-                  city={this.state.city}
-                  region={this.state.region}
-                  page={this.state.page}
-                />
-              )}
+      <React.Fragment>
+        <Grid container>
+          <Grid item xs={12}>
+            <Selection
+              handleChange={this.handleChange}
+              city={this.state.city}
+              region={this.state.region}
             />
+          </Grid>
+          <Grid item xs={12} container>
+            <Switch>
+              <Route
+                path="/home/postings"
+                component={() => (
+                  <IteratePostings
+                    city={this.state.city}
+                    region={this.state.region}
+                    page={this.state.page}
+                  />
+                )}
+              />
 
-            <Redirect from="/home" exact to="/home/postings" />
-            <Redirect to="/not-found"></Redirect>
-          </Switch>
+              <Redirect from="/home" exact to="/home/postings" />
+              <Redirect to="/not-found"></Redirect>
+            </Switch>
+          </Grid>
         </Grid>
-        <Grid item xs={12} style={{ backgroundColor: "black" }}>
-          <CopyrightIcon style={{ color: "white" }} />
-        </Grid>
-      </Grid>
+        <Footer />
+      </React.Fragment>
     );
   }
 }

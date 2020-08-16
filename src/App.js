@@ -20,6 +20,8 @@ import OpenPosting from "./components/postings/OpenPosting";
 import AppBar from "@material-ui/core/AppBar";
 
 import { HideOnScroll } from "./HideOnScroll";
+import Privacy from "./components/common/privacypolicy";
+import Terms from "./components/common/Terms";
 class App extends Component {
   state = {};
   componentDidMount() {
@@ -77,6 +79,8 @@ class App extends Component {
                 <Route path="/signup" component={SignupUI} />
                 <Route path="/create" component={CreatePosting} />
                 <Route path="/posting_details/:id" component={OpenPosting} />
+                <Route path="/privacy" component={Privacy} />
+                <Route path="/terms" component={Terms} />
                 <Redirect from="/" exact to="/home" />
                 <Redirect to="/not-found"></Redirect>
               </Switch>
