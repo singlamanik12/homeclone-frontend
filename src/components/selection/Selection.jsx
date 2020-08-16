@@ -58,7 +58,7 @@ class Selection extends Component {
           </Grid>
           <Grid item xs={12} style={{ marginTop: "6px" }}>
             <div
-              className="alert alert-warning alert-dismissible fade show"
+              className="alert alert-light alert-dismissible fade show"
               role="alert"
               style={{ fontSize: "15px", padding: "1px" }}
             >

@@ -7,6 +7,14 @@ import LoggedIn from "./LoggedIn";
 import LoggedOff from "./LoggedOff";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
+import { Link as RouterLink } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 const useStyles = makeStyles({
   list: {
@@ -48,6 +56,12 @@ export default function SwipeableTemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       {localStorage.getItem("token") !== null ? <LoggedIn /> : <LoggedOff />}
+      <ListItem button key="1" component={RouterLink} to="/logout">
+        <ListItemIcon style={{ fontSize: "36px" }}>
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </ListItemIcon>
+        <ListItemText primary="Logout" />
+      </ListItem>
     </div>
   );
   try {

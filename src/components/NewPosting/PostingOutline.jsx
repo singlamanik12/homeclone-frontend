@@ -17,8 +17,8 @@ class PostingOutline extends Component {
     return (
       <>
         <Grid container>
-          <Grid item lg={3} xs={1} container></Grid>
-          <Grid item lg={9} xs={10} container direction="column">
+          <Grid item lg={3} container></Grid>
+          <Grid item lg={9} xs={12} container direction="column">
             <h1>Let's start!</h1>
             <br />
             {/* <h2>Outline</h2> */}
@@ -89,7 +89,7 @@ class PostingOutline extends Component {
             </Grid>
             {/* )} */}
           </Grid>
-          <Grid item xs={1}></Grid>
+          {/* <Grid item xs={1}></Grid> */}
         </Grid>
       </>
     );
