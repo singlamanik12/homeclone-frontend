@@ -10,100 +10,50 @@ import {
   CardHeader,
 } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
+import BigScreenPosting from "./BigScreenPosting";
+import SmallScreenPosting from "./SmallScreenPosting";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import throttle from "lodash.throttle";
 class OpenPosting extends Component {
-  state = {};
-  componentDidMount = async () => {
-    console.log(
-      await http.get(
-        `http://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
-      )
-    );
+  state = { isMobile: false };
+  throttledHandleWindowResize = () => {
+    return throttle(() => {
+      this.setState({ isMobile: window.innerWidth < 760 });
+    }, 200);
   };
+
+  componentDidMount() {
+    window.addEventListener("resize", this.throttledHandleWindowResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.throttledHandleWindowResize);
+  }
   render() {
-    return (
-      <Grid item xs={12} container style={{ marginBottom: "50px" }}>
-        <Grid item lg={1}></Grid>
-        <Grid item xs={12} lg={10} container direction="column">
-          <Grid item xs={12} container style={{ marginTop: "30px" }}>
-            <br />
-            <Typography
-              variant="subtitle1"
-              style={{ fontFamily: "Noto Sans JP" }}
-              gutterBottom
-            >
-              Private Room
-            </Typography>
-            <Grid item xs={12} style={{ marginBottom: "20px" }}>
-              <ImageGrid />
-            </Grid>
-
-            <Grid item xs={12}>
-              <Typography variant="h4" style={{ fontFamily: "Noto Sans JP" }}>
-                Shinchan's House
-              </Typography>
-
-              <Typography
-                variant="body2"
-                style={{ fontFamily: "Noto Sans JP" }}
-                guuterBottom
-              >
-                Tokyo, Japan
-              </Typography>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              style={{ marginTop: "10px", marginBottom: "10px" }}
-            >
-              <Divider />
-            </Grid>
-            <Grid item xs={12} container>
-              <Grid item xs={6}>
-                <Typography variant="h6" style={{ fontFamily: "Noto Sans JP" }}>
-                  Posted By Manik Singla
-                </Typography>
-              </Grid>
-              <Grid item xs={2}>
-                <Avatar style={{ width: "60px", height: "60px" }}>M</Avatar>
-              </Grid>
-              <Grid item xs={4}>
-                <Card>
-                  <CardHeader
-                    title={
-                      <Typography
-                        variant="h4"
-                        style={{ fontFamily: "Noto Sans JP" }}
-                      >
-                        Pricing
-                      </Typography>
-                    }
-                    subheader={
-                      <Typography
-                        variant="caption"
-                        style={{ fontFamily: "Noto Sans JP" }}
-                      >
-                        /month
-                      </Typography>
-                    }
-                  ></CardHeader>
-                  <Divider variant="middle" />
-                  <CardContent>
-                    <Typography
-                      variant="h3"
-                      style={{ fontFamily: "Noto Sans JP", color: "#cc0000" }}
-                    >
-                      $365
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={1}></Grid>
-      </Grid>
-    );
+    console.log(this.state.isMobile);
+    return this.state.isMobile ? <div>Mobile</div> : <div>Window</div>;
   }
 }
 
 export default OpenPosting;
+
+// class OpenPosting extends Component {
+//   state = { isMobile: false };
+//   componentDidMount = async () => {
+//     this.setState({ height: window.innerWidth });
+//     console.log(
+//       await http.get(
+//         `http://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
+//       )
+//     );
+//   };
+//   render() {
+//     return useMediaQuery("(min-width:600px)") ? (
+//       <BigScreenPosting />
+//     ) : (
+//       <SmallScreenPosting />
+//     );
+//   }
+// }
+
+// export default OpenPosting;
