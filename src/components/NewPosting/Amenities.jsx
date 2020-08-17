@@ -203,10 +203,7 @@ class Amenities extends Component {
                     color="primary"
                     aria-label="add"
                     disabled={
-                      // values.price === "" ||
-
-                      // values.typeOfBathroom=== ""
-                      false
+                      values.price === "" || values.typeOfBathroom === ""
                     }
                   >
                     <ArrowForwardIcon fontSize="large" />

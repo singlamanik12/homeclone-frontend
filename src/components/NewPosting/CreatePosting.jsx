@@ -19,7 +19,7 @@ class CreatePosting extends Component {
     totalPersonRequired: "",
     city: "",
     state: "",
-    totalBeds: "",
+    totalBeds: "123",
     typeOfBathroom: "",
     streetAddress: "",
     wifi: false,
@@ -34,6 +34,7 @@ class CreatePosting extends Component {
     phoneNumber: "",
     price: "",
     region: "",
+    title: "",
     verified: true,
     images: [],
     open: false,
@@ -70,29 +71,35 @@ class CreatePosting extends Component {
   handleSubmitPosting = async () => {
     const { email } = getCurrentUserEmail();
     console.log(this.state.images);
-    await http.post("https://apiforrenting.herokuapp.com/newposting", {
-      email: email,
-      typeOfHousing: this.state.typeOfHousing,
-      totalPersonRequired: this.state.totalPersonRequired,
-      city: this.state.city,
-      state: this.state.state,
-      totalBeds: this.state.totalBeds,
-      typeOfBathroom: this.state.typeOfBathroom,
-      streetAddress: this.state.streetAddress,
-      wifi: this.state.wifi,
-      electricity: this.state.electricity,
-      laundary: this.state.laundary,
-      water: this.state.water,
-      parking: this.state.parking,
-      microwave: this.state.microwave,
-      refrigerator: this.state.refrigerator,
-      ownerLiving: this.state.ownerLiving,
-      description: this.state.description,
-      phoneNumber: this.state.phoneNumber,
-      price: this.state.price,
-      region: this.state.region,
-      images: this.state.images,
-    });
+    try {
+      await http.post("https://apiforrenting.herokuapp.com/newposting", {
+        email: email,
+        typeOfHousing: this.state.typeOfHousing,
+        totalPersonRequired: this.state.totalPersonRequired,
+        city: this.state.city,
+        state: this.state.state,
+        totalBeds: this.state.totalBeds,
+        typeOfBathroom: this.state.typeOfBathroom,
+        streetAddress: this.state.streetAddress,
+        wifi: this.state.wifi,
+        electricity: this.state.electricity,
+        laundary: this.state.laundary,
+        water: this.state.water,
+        parking: this.state.parking,
+        microwave: this.state.microwave,
+        refrigerator: this.state.refrigerator,
+        ownerLiving: this.state.ownerLiving,
+        description: this.state.description,
+        phoneNumber: this.state.phoneNumber,
+        price: this.state.price,
+        region: this.state.region,
+        images: this.state.images,
+        title: this.state.title,
+      });
+      window.location = "/";
+    } catch (ex) {
+      console.log(ex);
+    }
   };
   multipleFileChangedHandler = (event) => {
     const datas = new FormData();
@@ -145,6 +152,7 @@ class CreatePosting extends Component {
       region,
       ownerLiving,
       houseNumber,
+      title,
     } = this.state;
     const values = {
       typeOfHousing,
@@ -167,6 +175,7 @@ class CreatePosting extends Component {
       region,
       ownerLiving,
       houseNumber,
+      title,
     };
 
     return (

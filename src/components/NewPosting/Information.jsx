@@ -6,6 +6,7 @@ import States from "../selection/States";
 import Fab from "@material-ui/core/Fab";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
 class Information extends Component {
   state = {};
   render() {
@@ -52,6 +53,31 @@ class Information extends Component {
             </Grid>
             <br />
             <br />
+            <h5>
+              <em>Region</em>
+            </h5>
+            <Grid item xs={12} container>
+              <FormControl variant="outlined" style={{ minWidth: "100%" }}>
+                <InputLabel id="demo-simple-select-outlined-label">
+                  Region
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-outlined-label"
+                  id="demo-simple-select-outlined"
+                  value={values.region}
+                  onChange={handleChange}
+                  label="Region"
+                  name="region"
+                >
+                  <MenuItem value={"North"}>North</MenuItem>
+                  <MenuItem value={"South"}>South</MenuItem>
+                  <MenuItem value={"East"}>East</MenuItem>
+                  <MenuItem value={"West"}>West</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <br />
+            <br />
             <h1>Contact Information</h1>
             <br />
             <h5>
@@ -93,10 +119,11 @@ class Information extends Component {
                     color="primary"
                     aria-label="add"
                     disabled={
-                      // values.city === "" ||
-                      // values.state === "" ||
-                      // values.streetA === ""
-                      false
+                      values.city === "" ||
+                      values.state === "" ||
+                      values.streetAddress === "" ||
+                      values.region === "" ||
+                      values.phoneNumber === ""
                     }
                   >
                     <ArrowBackIcon fontSize="large" />

@@ -39,13 +39,11 @@ class PostingOutline extends Component {
                   label="Type Of Housing"
                   required
                 >
-                  <MenuItem value="">
-                    <em>Select type</em>
-                  </MenuItem>
                   <MenuItem value={"Full Storey"}>Full Storey</MenuItem>
                   <MenuItem value={"Apartment"}>Apartment</MenuItem>
                   <MenuItem value={"Private Room"}>Private Room</MenuItem>
                   <MenuItem value={"Shared Room"}>Shared Room</MenuItem>
+                  <MenuItem value={"Condo"}>Condo</MenuItem>
                 </Select>
               </FormControl>
               <br />
@@ -67,7 +65,19 @@ class PostingOutline extends Component {
                 variant="outlined"
               />
               <br />
-
+              <br />
+              <h5>
+                <em>Title</em>
+              </h5>
+              <TextField
+                style={{ width: "100%" }}
+                id="outlined-basic"
+                label="Title"
+                variant="outlined"
+                name="title"
+                onChange={handleChange}
+                value={values.title}
+              />
               {/* {&& ( */}
 
               <div
@@ -78,9 +88,9 @@ class PostingOutline extends Component {
                   color="primary"
                   aria-label="add"
                   disabled={
-                    // values.totalPersonRequired === "" ||
-                    // values.typeOfHousing === ""
-                    false
+                    values.totalPersonRequired === "" ||
+                    values.typeOfHousing === "" ||
+                    values.title === ""
                   }
                 >
                   <ArrowForwardIcon fontSize="large" />
