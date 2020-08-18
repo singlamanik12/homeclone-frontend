@@ -10,6 +10,48 @@ import {
   CardHeader,
 } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+} from "react-share";
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon,
+} from "react-share";
 class BigScreenPosting extends Component {
   state = {};
   render() {
@@ -51,44 +93,66 @@ class BigScreenPosting extends Component {
               <Divider />
             </Grid>
             <Grid item xs={12} container>
-              <Grid item xs={6}>
-                <Typography variant="h6" style={{ fontFamily: "Noto Sans JP" }}>
-                  Posted By Manik Singla
-                </Typography>
-              </Grid>
-              <Grid item xs={2}>
-                <Avatar style={{ width: "60px", height: "60px" }}>M</Avatar>
-              </Grid>
-              <Grid item xs={4}>
-                <Card>
-                  <CardHeader
-                    title={
-                      <Typography
-                        variant="h4"
-                        style={{ fontFamily: "Noto Sans JP" }}
-                      >
-                        Pricing
-                      </Typography>
-                    }
-                    subheader={
-                      <Typography
-                        variant="caption"
-                        style={{ fontFamily: "Noto Sans JP" }}
-                      >
-                        /month
-                      </Typography>
-                    }
-                  ></CardHeader>
-                  <Divider variant="middle" />
-                  <CardContent>
+              <Grid item xs={8} container direction="container">
+                <Grid item xs={12} container>
+                  <Grid item xs={10}>
                     <Typography
-                      variant="h3"
-                      style={{ fontFamily: "Noto Sans JP", color: "#cc0000" }}
+                      variant="h6"
+                      style={{ fontFamily: "Noto Sans JP" }}
                     >
-                      $365
+                      Posted By Manik Singla
                     </Typography>
-                  </CardContent>
-                </Card>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Avatar style={{ width: "60px", height: "60px" }}>M</Avatar>
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} container>
+                  <WhatsappShareButton
+                    url="https://www.rooftail.com"
+                    title="Rooftail is a Pvt. Ltd."
+                    separator=""
+                  >
+                    {" "}
+                    <WhatsappIcon size={32} round={true} />
+                  </WhatsappShareButton>
+                </Grid>
+                <Grid item xs={12}>
+                  <Divider variant="middle" />
+                </Grid>
+              </Grid>
+              <Grid item xs={4} container direction="container">
+                <Grid item xs={12}>
+                  <Card>
+                    <CardHeader
+                      title={
+                        <Typography
+                          variant="h4"
+                          style={{ fontFamily: "Noto Sans JP" }}
+                        >
+                          Pricing
+                        </Typography>
+                      }
+                      subheader={
+                        <Typography
+                          variant="caption"
+                          style={{ fontFamily: "Noto Sans JP" }}
+                        >
+                          /month
+                        </Typography>
+                      }
+                    ></CardHeader>
+                    <Divider variant="middle" />
+                    <CardContent>
+                      <Typography
+                        variant="h3"
+                        style={{ fontFamily: "Noto Sans JP", color: "#cc0000" }}
+                      >
+                        $365
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

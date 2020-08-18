@@ -16,22 +16,24 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import throttle from "lodash.throttle";
 class OpenPosting extends Component {
   state = { isMobile: false };
-  throttledHandleWindowResize = () => {
-    return throttle(() => {
-      this.setState({ isMobile: window.innerWidth < 760 });
-    }, 200);
+
+  componentDidMount = async () => {
+    const mql = window.matchMedia("(max-width: 600px)");
+    let isMobile;
+    mql.addEventListener("change", (e) => {
+      isMobile = e.matches;
+      this.setState({ isMobile });
+    });
+    console.log(
+      await http.get(
+        `http://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
+      )
+    );
   };
 
-  componentDidMount() {
-    window.addEventListener("resize", this.throttledHandleWindowResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.throttledHandleWindowResize);
-  }
   render() {
-    console.log(this.state.isMobile);
-    return this.state.isMobile ? <div>Mobile</div> : <div>Window</div>;
+    console.log(window.matchMedia("(max-width: 600px)"));
+    return this.state.isMobile ? <SmallScreenPosting /> : <BigScreenPosting />;
   }
 }
 
