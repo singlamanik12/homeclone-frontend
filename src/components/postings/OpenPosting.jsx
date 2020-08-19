@@ -15,7 +15,7 @@ import SmallScreenPosting from "./SmallScreenPosting";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import throttle from "lodash.throttle";
 class OpenPosting extends Component {
-  state = { isMobile: false };
+  state = { isMobile: window.matchMedia("(max-width: 600px)").matches };
 
   componentDidMount = async () => {
     const mql = window.matchMedia("(max-width: 600px)");
@@ -24,6 +24,14 @@ class OpenPosting extends Component {
       isMobile = e.matches;
       this.setState({ isMobile });
     });
+
+    // window.addEventListener("resize", () => {
+    //   if (window.innerWidth <= 600) {
+    //     this.setState({ isMobile: true });
+    //   } else {
+    //     this.setState({ isMobile: false });
+    //   }
+    // });
     console.log(
       await http.get(
         `http://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
