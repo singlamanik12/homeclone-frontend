@@ -9,6 +9,7 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import { Link as RouterLink } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
+import PersonIcon from "@material-ui/icons/Person";
 import { getCurrentUserEmail } from "./../../services/JwtServices";
 class LoggedOff extends Component {
   state = {};
@@ -23,7 +24,9 @@ class LoggedOff extends Component {
             to="/signup"
           >
             <ListItemAvatar>
-              <Avatar>H</Avatar>
+              <Avatar>
+                <PersonIcon />
+              </Avatar>
             </ListItemAvatar>
             <ListItemText
               primary="Sign in"
