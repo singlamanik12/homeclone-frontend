@@ -25,11 +25,10 @@ class OpenPosting extends Component {
       this.setState({ isMobile });
     });
 
-    console.log(
-      await http.get(
-        `http://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
-      )
+    const result = await http.get(
+      `http://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
     );
+    console.log(result);
   };
 
   render() {
