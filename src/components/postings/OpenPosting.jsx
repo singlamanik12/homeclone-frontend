@@ -25,13 +25,6 @@ class OpenPosting extends Component {
       this.setState({ isMobile });
     });
 
-    // window.addEventListener("resize", () => {
-    //   if (window.innerWidth <= 600) {
-    //     this.setState({ isMobile: true });
-    //   } else {
-    //     this.setState({ isMobile: false });
-    //   }
-    // });
     console.log(
       await http.get(
         `http://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
@@ -46,24 +39,3 @@ class OpenPosting extends Component {
 }
 
 export default OpenPosting;
-
-// class OpenPosting extends Component {
-//   state = { isMobile: false };
-//   componentDidMount = async () => {
-//     this.setState({ height: window.innerWidth });
-//     console.log(
-//       await http.get(
-//         `http://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
-//       )
-//     );
-//   };
-//   render() {
-//     return useMediaQuery("(min-width:600px)") ? (
-//       <BigScreenPosting />
-//     ) : (
-//       <SmallScreenPosting />
-//     );
-//   }
-// }
-
-// export default OpenPosting;
