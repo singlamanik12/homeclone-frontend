@@ -9,7 +9,7 @@ class PostedBy extends Component {
         {" "}
         <Grid item xs={6} style={{ marginTop: "10px" }}>
           <Typography variant="h6" style={{ fontFamily: "Noto Sans JP" }}>
-            Posted By Manik Singla
+            Manik Singla
           </Typography>
         </Grid>
         <Grid item xs={6}>
