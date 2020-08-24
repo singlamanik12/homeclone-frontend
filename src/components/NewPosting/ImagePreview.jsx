@@ -12,7 +12,7 @@ class ImagePreview extends Component {
     const { images, handleDeleteImage } = this.props;
     return images.map((image) => (
       <>
-        <Grid item xs={6}>
+        <Grid item xs={12} lg={6}>
           <Card
             style={{
               marginBottom: "50px",
