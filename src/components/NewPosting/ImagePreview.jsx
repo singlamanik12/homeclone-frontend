@@ -20,7 +20,7 @@ class ImagePreview extends Component {
               marginLeft: "10px",
             }}
           >
-            <CardMedia style={{ height: 200 }} image={image}></CardMedia>
+            <CardMedia image={image}></CardMedia>
             <CardContent>
               <DeleteUploadedImage
                 image={image}
