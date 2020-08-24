@@ -6,7 +6,14 @@ import States from "../selection/States";
 import Fab from "@material-ui/core/Fab";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
+
+import {
+  FormControl,
+  MenuItem,
+  InputLabel,
+  Select,
+  Typography,
+} from "@material-ui/core";
 class Information extends Component {
   state = {};
   render() {
@@ -17,14 +24,24 @@ class Information extends Component {
         <Grid container>
           <Grid item lg={3} xs={1} container></Grid>
           <Grid item lg={9} xs={10} container direction="column">
-            <h1>Place Information</h1>
+            <Typography
+              variant="h3"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Place Information
+            </Typography>
             <br />
             {/* <h2>Outline</h2> */}
-            <h5>
-              <em>Street Address</em>
-            </h5>
+            <Typography
+              variant="h6"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Street Address
+            </Typography>
             <TextField
-              id="outlined-helperText"
+              id="streetAddress"
               label="Street Address"
               helperText="e.g. 48, Yonge Street"
               variant="outlined"
@@ -35,9 +52,13 @@ class Information extends Component {
             <br />
             <Grid item xs={12} container>
               <Grid item xs={6}>
-                <h5>
-                  <em>City</em>
-                </h5>
+                <Typography
+                  variant="h6"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                  gutterBottom
+                >
+                  City
+                </Typography>
                 <RenderOptions
                   handleChange={handleChange}
                   values={values.city}
@@ -45,17 +66,25 @@ class Information extends Component {
               </Grid>
               <Grid item xs={1} />
               <Grid item xs={5}>
-                <h5>
-                  <em>State</em>
-                </h5>
+                <Typography
+                  variant="h6"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                  gutterBottom
+                >
+                  State
+                </Typography>
                 <States handleChange={handleChange} values={values.state} />
               </Grid>
             </Grid>
             <br />
             <br />
-            <h5>
-              <em>Region</em>
-            </h5>
+            <Typography
+              variant="h6"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Region
+            </Typography>
             <Grid item xs={12} container>
               <FormControl variant="outlined" style={{ minWidth: "100%" }}>
                 <InputLabel id="demo-simple-select-outlined-label">
@@ -78,11 +107,21 @@ class Information extends Component {
             </Grid>
             <br />
             <br />
-            <h1>Contact Information</h1>
+            <Typography
+              variant="h3"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Contact Information
+            </Typography>
             <br />
-            <h5>
-              <em>Phone Number</em>
-            </h5>
+            <Typography
+              variant="h6"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Phone Number
+            </Typography>
             <Grid item xs={12} container>
               <Grid item xs={2}>
                 <TextField
@@ -99,10 +138,11 @@ class Information extends Component {
               <Grid item xs={10}>
                 <TextField
                   style={{ width: "100%" }}
-                  id="outlined-helperText"
+                  id="phoneNumber"
                   label="Phone Number"
-                  helperText="e.g. 0123456789"
+                  helperText="e.g. 0123456789 length should be 10"
                   variant="outlined"
+                  type="tel"
                   value={values.phoneNumber}
                   name="phoneNumber"
                   onChange={handleChange}
@@ -112,41 +152,33 @@ class Information extends Component {
             <br />
             <br />
             <br />
-            <Grid item xs={12} container>
+            <Grid item xs={12} container style={{ marginBottom: "30px" }}>
               <Grid item>
-                <div onClick={prevStep}>
-                  <Fab
-                    color="primary"
-                    aria-label="add"
-                    disabled={
-                      values.city === "" ||
-                      values.state === "" ||
-                      values.streetAddress === "" ||
-                      values.region === "" ||
-                      values.phoneNumber === ""
-                    }
-                  >
-                    <ArrowBackIcon fontSize="large" />
-                  </Fab>
-                </div>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={prevStep}
+                >
+                  Back
+                </button>
               </Grid>
               <Grid item xs={7} lg={9} />
+
               <Grid item>
-                <div onClick={nextStep}>
-                  <Fab
-                    color="primary"
-                    aria-label="add"
-                    disabled={
-                      // values.city === "" ||
-                      // values.state === "" ||
-                      // values.streetAddress === ""||
-                      // values.phoneNumber === ""
-                      false
-                    }
-                  >
-                    <ArrowForwardIcon fontSize="large" />
-                  </Fab>
-                </div>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={nextStep}
+                  disabled={
+                    values.city === "" ||
+                    values.state === "" ||
+                    values.streetAddress === "" ||
+                    values.region === "" ||
+                    values.phoneNumber === ""
+                  }
+                >
+                  Next
+                </button>
               </Grid>
               <Grid item xs={1} />
             </Grid>

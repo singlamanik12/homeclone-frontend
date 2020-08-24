@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
@@ -10,7 +9,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link as RouterLink } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import PersonIcon from "@material-ui/icons/Person";
-import { getCurrentUserEmail } from "./../../services/JwtServices";
+
 class LoggedOff extends Component {
   state = {};
   render() {

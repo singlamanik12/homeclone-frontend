@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch, NavLink, Link } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import IteratePostings from "./IteratePostings";
-import OpenPosting from "./OpenPosting";
 import Selection from "../selection/Selection";
 
 import Footer from "../common/footer";

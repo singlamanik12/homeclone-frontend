@@ -9,9 +9,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
-import Fab from "@material-ui/core/Fab";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Typography } from "@material-ui/core";
 class Amenities extends Component {
   state = {};
   render() {
@@ -27,11 +25,21 @@ class Amenities extends Component {
         <Grid item lg={3} xs={1} container></Grid>
 
         <Grid item lg={9} xs={10} container direction="column">
-          <h1>Basic Details</h1>
+          <Typography
+            variant="h3"
+            style={{ fontFamily: "Noto Sans JP" }}
+            gutterBottom
+          >
+            Basic Details
+          </Typography>
           <br />
-          <h5>
-            <em>Basic amenities</em>
-          </h5>
+          <Typography
+            variant="h6"
+            style={{ fontFamily: "Noto Sans JP" }}
+            gutterBottom
+          >
+            Basic Amenities
+          </Typography>
           <Grid item xs={12}>
             <FormControlLabel
               control={
@@ -75,7 +83,7 @@ class Amenities extends Component {
                   checked={values.laundry}
                   onChange={handleCheck}
                   value={values.laundry}
-                  name="laundry"
+                  name="laundary"
                   color="primary"
                 />
               }
@@ -120,9 +128,13 @@ class Amenities extends Component {
               label="Microwave"
             />
             <br />
-            <h5>
-              <em>Type of Bathroom</em>
-            </h5>
+            <Typography
+              variant="h6"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Type Of Bathroom
+            </Typography>
             <FormControl variant="outlined" style={{ width: "100%" }}>
               <InputLabel id="demo-simple-select-outlined-label">
                 Type of Bathroom
@@ -146,9 +158,13 @@ class Amenities extends Component {
             </FormControl>
             <br />
             <br />
-            <h5>
-              <em>Additional Information</em>
-            </h5>
+            <Typography
+              variant="h6"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Additional Information
+            </Typography>
             <TextareaAutosize
               style={{ width: "100%" }}
               aria-label="minimum height"
@@ -160,15 +176,20 @@ class Amenities extends Component {
             />
             <br />
             <br />
-            <h5>
-              <em>Price per month</em>
-            </h5>
+            <Typography
+              variant="h6"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Price per month
+            </Typography>
             <FormControl fullWidth variant="outlined">
               <InputLabel htmlFor="outlined-adornment-amount">Price</InputLabel>
               <OutlinedInput
                 id="outlined-adornment-amount"
                 value={values.price}
                 onChange={handleChange}
+                type="number"
                 name="price"
                 startAdornment={
                   <InputAdornment position="start">$</InputAdornment>
@@ -179,36 +200,26 @@ class Amenities extends Component {
             <br />
             <br />
             <br />
-            <Grid item xs={12} container>
+            <Grid item xs={12} container style={{ marginBottom: "30px" }}>
               <Grid item>
-                <div onClick={prevStep}>
-                  <Fab
-                    color="primary"
-                    aria-label="add"
-                    disabled={
-                      // values.city === "" ||
-                      // values.state === "" ||
-                      // values.typeOfHousing === ""
-                      false
-                    }
-                  >
-                    <ArrowBackIcon fontSize="large" />
-                  </Fab>
-                </div>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={prevStep}
+                >
+                  Back
+                </button>
               </Grid>
               <Grid item xs={7} lg={9} />
               <Grid item>
-                <div onClick={nextStep}>
-                  <Fab
-                    color="primary"
-                    aria-label="add"
-                    disabled={
-                      values.price === "" || values.typeOfBathroom === ""
-                    }
-                  >
-                    <ArrowForwardIcon fontSize="large" />
-                  </Fab>
-                </div>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={nextStep}
+                  disabled={values.price === "" || values.typeOfBathroom === ""}
+                >
+                  Next
+                </button>
               </Grid>
               <Grid item xs={1} />
             </Grid>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import http from "../../services/httpServices";
 import ImageGrid from "./ImageGrid";
 import Grid from "@material-ui/core/Grid";
 import TitleHeading from "./OpenPostingElements/TitleHeading";

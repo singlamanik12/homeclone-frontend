@@ -2,7 +2,7 @@ import React from "react";
 
 import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
 
-const States = ({ handleChange, value }) => {
+const States = ({ handleChange, values }) => {
   return (
     <>
       <FormControl variant="outlined" style={{ minWidth: "100%" }}>
@@ -10,26 +10,16 @@ const States = ({ handleChange, value }) => {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={value}
+          value={values}
           name="state"
           onChange={handleChange}
           label="State"
         >
-          <MenuItem value="ON">
-            <em>ON</em>
-          </MenuItem>
-          <MenuItem value="BC">
-            <em>BC</em>
-          </MenuItem>
-          <MenuItem value="AB">
-            <em>AB</em>
-          </MenuItem>
-          <MenuItem value="MB">
-            <em>MB</em>
-          </MenuItem>
-          <MenuItem value="SK">
-            <em>SK</em>
-          </MenuItem>
+          <MenuItem value={"ON"}>ON</MenuItem>
+          <MenuItem value={"BC"}>BC</MenuItem>
+          <MenuItem value={"AB"}>AB</MenuItem>
+          <MenuItem value={"MB"}>MB</MenuItem>
+          <MenuItem value={"SK"}>SK</MenuItem>
         </Select>
       </FormControl>
     </>

@@ -6,8 +6,9 @@ import Select from "@material-ui/core/Select";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-
+import Divider from "@material-ui/core/Divider";
 import TextField from "@material-ui/core/TextField";
+import { Typography } from "@material-ui/core";
 class PostingOutline extends Component {
   state = {};
 
@@ -19,13 +20,23 @@ class PostingOutline extends Component {
         <Grid container>
           <Grid item lg={3} xs={1} container></Grid>
           <Grid item lg={9} xs={10} container direction="column">
-            <h1>Let's start!</h1>
+            <Typography
+              variant="h3"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Let's start
+            </Typography>
             <br />
             {/* <h2>Outline</h2> */}
             <Grid item xs={12}>
-              <h5>
-                <em>Type of Housing</em>
-              </h5>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Type Of Housing
+              </Typography>
               <FormControl variant="outlined" style={{ width: "100%" }}>
                 <InputLabel id="demo-simple-select-outlined-label">
                   Type of Housing
@@ -48,9 +59,13 @@ class PostingOutline extends Component {
               </FormControl>
               <br />
               <br />
-              <h5>
-                <em>Vacancies</em>
-              </h5>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Vacancies
+              </Typography>
               <TextField
                 style={{ width: "100%" }}
                 id="outlined-number"
@@ -66,9 +81,13 @@ class PostingOutline extends Component {
               />
               <br />
               <br />
-              <h5>
-                <em>Title</em>
-              </h5>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Title
+              </Typography>
               <TextField
                 style={{ width: "100%" }}
                 id="outlined-basic"
@@ -78,26 +97,21 @@ class PostingOutline extends Component {
                 onChange={handleChange}
                 value={values.title}
               />
-              {/* {&& ( */}
 
-              <div
-                style={{ marginInlineStart: "85%", marginTop: "50px" }}
+              <button
+                type="button"
+                className="btn btn-primary"
                 onClick={nextStep}
+                style={{ marginInlineStart: "85%", marginTop: "50px" }}
+                disabled={
+                  values.totalPersonRequired === "" ||
+                  values.typeOfHousing === "" ||
+                  values.title === ""
+                }
               >
-                <Fab
-                  color="primary"
-                  aria-label="add"
-                  disabled={
-                    values.totalPersonRequired === "" ||
-                    values.typeOfHousing === "" ||
-                    values.title === ""
-                  }
-                >
-                  <ArrowForwardIcon fontSize="large" />
-                </Fab>
-              </div>
+                Next
+              </button>
             </Grid>
-            {/* )} */}
           </Grid>
           <Grid item xs={1}></Grid>
         </Grid>

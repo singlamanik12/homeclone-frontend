@@ -17,6 +17,7 @@ class AmenitiesIncluded extends Component {
           >
             <img
               src="https://img.icons8.com/office/40/000000/water.png"
+              alt="Retry to load"
               style={{ marginRight: "10px", width: "45px" }}
             />
             Water
@@ -30,6 +31,7 @@ class AmenitiesIncluded extends Component {
           >
             <img
               src="https://img.icons8.com/cotton/64/000000/electricity.png"
+              alt="Retry to load"
               style={{ marginRight: "10px", width: "45px" }}
             />
             Electricity
@@ -43,6 +45,7 @@ class AmenitiesIncluded extends Component {
           >
             <img
               src="https://img.icons8.com/color/48/000000/wifi.png"
+              alt="Retry to load"
               style={{ marginRight: "10px", width: "45px" }}
             />
             WiFi
@@ -56,6 +59,7 @@ class AmenitiesIncluded extends Component {
           >
             <img
               src="https://img.icons8.com/officel/40/000000/washing-machine.png"
+              alt="Retry to load"
               style={{ marginRight: "10px", width: "45px" }}
             />
             Laundry
@@ -69,6 +73,7 @@ class AmenitiesIncluded extends Component {
           >
             <img
               src="https://img.icons8.com/color/48/000000/fridge.png"
+              alt="Retry to load"
               style={{ marginRight: "10px", width: "45px" }}
             />
             Referigerator
@@ -82,6 +87,7 @@ class AmenitiesIncluded extends Component {
           >
             <img
               src="https://img.icons8.com/ultraviolet/40/000000/toaster-oven.png"
+              alt="Retry to load"
               style={{ marginRight: "10px", width: "45px" }}
             />
             Microwave

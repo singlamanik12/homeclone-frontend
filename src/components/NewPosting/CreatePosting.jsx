@@ -38,6 +38,7 @@ class CreatePosting extends Component {
     verified: true,
     images: [],
     open: false,
+    load: false,
   };
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -101,11 +102,16 @@ class CreatePosting extends Component {
       console.log(ex);
     }
   };
+  startLoading = () => {
+    this.setState({ load: true });
+  };
   multipleFileChangedHandler = (event) => {
     const datas = new FormData();
     let selectedFiles = event.target.files;
 
     if (selectedFiles) {
+      this.startLoading();
+      console.log(this.state.load);
       for (let i = 0; i < selectedFiles.length; i++) {
         datas.append("file", selectedFiles[i], selectedFiles[i].name);
       }
@@ -119,6 +125,7 @@ class CreatePosting extends Component {
       .then((response) => {
         this.setState({
           images: [...this.state.images, ...response.data],
+          load: response,
         });
       });
   };
@@ -205,7 +212,7 @@ class CreatePosting extends Component {
           </DialogActions>
         </Dialog>
         <Grid container>
-          <Grid item xs={12} lg={7}>
+          <Grid item xs={12} lg={7} style={{ paddingTop: "20px" }}>
             {
               {
                 1: (
@@ -240,11 +247,13 @@ class CreatePosting extends Component {
                     handleDeleteImage={this.handleDeleteImage}
                     handleSubmitPosting={this.handleSubmitPosting}
                     prevStep={this.prevStep}
+                    load={this.state.load}
                   ></ImageUpload>
                 ),
               }[step]
             }
           </Grid>
+
           <Grid item lg={5}></Grid>
         </Grid>
       </>
