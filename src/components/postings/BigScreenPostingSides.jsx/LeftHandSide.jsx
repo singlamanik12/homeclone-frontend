@@ -8,20 +8,22 @@ import CustomDivider from "../OpenPostingElements/CustomDivider";
 class LeftHandSide extends Component {
   state = {};
   render() {
+    const { data } = this.props;
+    console.log(data);
     return (
-      <Grid item xs={8} container direction="container">
+      <Grid item xs={8} container direction="column">
         <Grid item xs={12} container>
-          <PostedBy />
+          <PostedBy data={data} />
         </Grid>
         <CustomDivider />
-        <MainInformation />
+        <MainInformation data={data} />
         <CustomDivider />
 
         <Grid item xs={12} container>
-          <Description />
+          <Description data={data} />
         </Grid>
         <CustomDivider />
-        <AmenitiesIncluded />
+        <AmenitiesIncluded data={data} />
       </Grid>
     );
   }

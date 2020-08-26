@@ -8,8 +8,9 @@ import HotelIcon from "@material-ui/icons/Hotel";
 class MainInformation extends Component {
   state = {};
   render() {
+    const { data } = this.props;
     return (
-      <Grid item xs={12} container direction="container">
+      <Grid item xs={12} container direction="column">
         <Grid item xs={12} container>
           <Avatar>
             <HomeIcon style={{ color: "black" }} />
@@ -20,7 +21,7 @@ class MainInformation extends Component {
             style={{ fontFamily: "Noto Sans JP", margin: "5px" }}
             gutterBottom
           >
-            Private Room
+            {data.typeOfHousing}
           </Typography>
         </Grid>
 
@@ -34,22 +35,24 @@ class MainInformation extends Component {
             style={{ fontFamily: "Noto Sans JP", margin: "5px" }}
             gutterBottom
           >
-            +17057703061
+            {data.phoneNumber}
           </Typography>
         </Grid>
-        <Grid item xs={12} container style={{ marginTop: "10px" }}>
-          <Avatar>
-            <LocalParkingIcon style={{ color: "black" }} />
-          </Avatar>
+        {data.parking && (
+          <Grid item xs={12} container style={{ marginTop: "10px" }}>
+            <Avatar>
+              <LocalParkingIcon style={{ color: "black" }} />
+            </Avatar>
 
-          <Typography
-            variant="subtitle1"
-            style={{ fontFamily: "Noto Sans JP", margin: "5px" }}
-            gutterBottom
-          >
-            Parking Available
-          </Typography>
-        </Grid>
+            <Typography
+              variant="subtitle1"
+              style={{ fontFamily: "Noto Sans JP", margin: "5px" }}
+              gutterBottom
+            >
+              Parking Available
+            </Typography>
+          </Grid>
+        )}
         <Grid item xs={12} container style={{ marginTop: "10px" }}>
           <Avatar>
             <HotelIcon style={{ color: "black" }} />
@@ -60,7 +63,7 @@ class MainInformation extends Component {
             style={{ fontFamily: "Noto Sans JP", margin: "5px" }}
             gutterBottom
           >
-            1 Person
+            {data.totalPersonRequired} Person
           </Typography>
         </Grid>
       </Grid>

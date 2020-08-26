@@ -52,6 +52,12 @@ class LoggedOff extends Component {
             </ListItemIcon>
             <ListItemText primary="Login" />
           </ListItem>
+          <ListItem button key="1" component={RouterLink} to="/my_postings">
+            <ListItemIcon style={{ fontSize: "36px" }}>
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </ListItemIcon>
+            <ListItemText primary="My Postings" />
+          </ListItem>
         </List>
       </>
     );

@@ -5,7 +5,7 @@ import { Typography } from "@material-ui/core";
 const GoLogin = () => {
   const ButtonText = <Typography variant="h6">Sign up with Google</Typography>;
   const responseGoogle = async (response) => {
-    const data = { username: "", email: "", password: "default" };
+    const data = { username: "", email: "" };
     data.username = response.profileObj.name;
     data.email = response.profileObj.email;
     // console.log(response);

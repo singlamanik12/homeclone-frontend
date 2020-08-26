@@ -5,17 +5,21 @@ import BigPricing from "../OpenPostingElements/BigPricing";
 class RightHandSide extends Component {
   state = {};
   render() {
+    const { data } = this.props;
     return (
       <Grid
         item
         xs={4}
         container
-        direction="container"
+        direction="column"
         style={{ marginTop: "50px" }}
       >
-        <BigPricing />
-        <Grid item xs={12} container>
-          <SharePosting />
+        <Grid item>
+          <BigPricing data={data} />
+        </Grid>
+
+        <Grid item style={{ marginTop: "20px" }}>
+          <SharePosting data={data} />
         </Grid>
       </Grid>
     );

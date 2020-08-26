@@ -16,7 +16,11 @@ import {
 } from "react-share";
 class SharePosting extends Component {
   state = {};
+
   render() {
+    const { data } = this.props;
+    const id = data._id;
+    const url = "https://www.rooftail.com/posting_details/" + id;
     return (
       <Grid item xs={12}>
         <Typography variant="body2" style={{ fontFamily: "Noto Sans JP" }}>
@@ -24,7 +28,7 @@ class SharePosting extends Component {
         </Typography>
         <br />
         <WhatsappShareButton
-          url="https://www.rooftail.com/home/"
+          url={url}
           title="Rooftail is a Pvt. Ltd."
           separator=""
         >
@@ -32,7 +36,7 @@ class SharePosting extends Component {
           <WhatsappIcon size={32} round={true} />
         </WhatsappShareButton>
         <FacebookShareButton
-          url="https://www.rooftail.com/home/"
+          url={url}
           title="Rooftail is a Pvt. Ltd."
           separator=""
         >

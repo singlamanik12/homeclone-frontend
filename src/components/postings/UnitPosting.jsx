@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 
 import { Link as RouterLink } from "react-router-dom";
+
 class UnitPosting extends Component {
   state = {
     expanded: false,
@@ -22,10 +23,7 @@ class UnitPosting extends Component {
   postingpage = () => {
     console.log("Manik");
   };
-  handleExpandClick = () => {
-    const expanded = !this.state.expanded;
-    this.setState({ expanded });
-  };
+
   render() {
     const { data } = this.props;
     let date = new Date(data.createdAt);
@@ -91,21 +89,6 @@ class UnitPosting extends Component {
           <IconButton aria-label="share">
             <ShareIcon />
           </IconButton>
-
-          <button
-            type="button"
-            class="btn btn-light"
-            style={{
-              marginLeft: "auto",
-              fontSize: "15px",
-              fontWeight: "lighter",
-            }}
-            onClick={this.handleExpandClick}
-            aria-expanded={this.state.expanded}
-            aria-label="show more"
-          >
-            Click to Expand
-          </button>
         </CardActions>
       </Card>
     );

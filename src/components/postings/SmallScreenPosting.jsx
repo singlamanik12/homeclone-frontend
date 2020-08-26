@@ -4,28 +4,36 @@ import Toolbar from "@material-ui/core/Toolbar";
 import { Typography, Grid } from "@material-ui/core";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { ReactDOM } from "react-dom";
 import TitleHeading from "./OpenPostingElements/TitleHeading";
 import PostedBy from "./OpenPostingElements/PostedBy";
 import MainInformation from "./OpenPostingElements/MainInformation";
 import AmenitiesIncluded from "./OpenPostingElements/AmenitiesIncluded";
 import Description from "./OpenPostingElements/Description";
 import CustomDivider from "./OpenPostingElements/CustomDivider";
+import http from "../../services/httpServices";
+import CircularProgress from "@material-ui/core/CircularProgress";
 class SmallScreenPosting extends Component {
-  state = {};
+  state = { data: {}, images: [], load: false };
+  componentDidMount = async () => {
+    await http
+      .get(`http://apiforrenting.herokuapp.com/posting?id=${this.props.id}`)
+      .then((response) =>
+        this.setState({ load: response, data: response.data.posting })
+      );
+
+    // console.log(data);
+    // this.setState({ data });
+  };
   render() {
-    return (
-      <>
-        <Carousel showThumbs={false} showArrows={false} transitionTime={100}>
-          <div>
-            <img src="https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&w=1000&q=80" />
-          </div>
-          <div>
-            <img src="https://media3.s-nbcnews.com/j/newscms/2019_41/3047866/191010-japan-stalker-mc-1121_06b4c20bbf96a51dc8663f334404a899.fit-760w.JPG" />
-          </div>
-          <div>
-            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" />
-          </div>
+    const { data } = this.state;
+    return this.state.load ? (
+      <React.Fragment>
+        <Carousel showThumbs={false} showArrows={false} transitionTime={200}>
+          {data.images.map((image) => (
+            <div>
+              <img src={image} alt="Retry to load image" />
+            </div>
+          ))}
         </Carousel>
         <Grid container>
           <Grid item xs={1} container></Grid>
@@ -38,28 +46,28 @@ class SmallScreenPosting extends Component {
             style={{ marginBottom: "100px" }}
           >
             <Grid item xs={12} container>
-              <TitleHeading />
+              <TitleHeading data={data} />
             </Grid>
             <Grid item xs={12} container>
-              <PostedBy />
-            </Grid>
-            <Grid item xs={12} container>
-              <CustomDivider />
-            </Grid>
-            <Grid item xs={12} container>
-              <MainInformation />
+              <PostedBy data={data} />
             </Grid>
             <Grid item xs={12} container>
               <CustomDivider />
             </Grid>
             <Grid item xs={12} container>
-              <Description />
+              <MainInformation data={data} />
             </Grid>
             <Grid item xs={12} container>
               <CustomDivider />
             </Grid>
             <Grid item xs={12} container>
-              <AmenitiesIncluded />
+              <Description data={data} />
+            </Grid>
+            <Grid item xs={12} container>
+              <CustomDivider />
+            </Grid>
+            <Grid item xs={12} container>
+              <AmenitiesIncluded data={data} />
             </Grid>
           </Grid>
         </Grid>
@@ -79,7 +87,18 @@ class SmallScreenPosting extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-      </>
+      </React.Fragment>
+    ) : (
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <CircularProgress color="secondary" />
+      </div>
     );
   }
 }

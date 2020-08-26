@@ -34,7 +34,7 @@ class BigPricing extends Component {
               variant="h3"
               style={{ fontFamily: "Noto Sans JP", color: "#cc0000" }}
             >
-              $365
+              ${this.props.data.price}
             </Typography>
           </CardContent>
         </Card>

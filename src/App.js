@@ -9,6 +9,7 @@ import { Typography } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import SideBar from "./components/SideBar/SideBar";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import MyPostings from "./components/MyPostings.jsx/MyPostings";
 const RegisterForm = lazy(() => import("./components/Form/RegisterForm"));
 const LoginForm = lazy(() => import("./components/Form/LoginForm"));
 const Forgot = lazy(() => import("./components/Form/Forgot"));
@@ -132,6 +133,10 @@ class App extends Component {
                   <Route
                     path="/terms"
                     render={(props) => <Terms {...props} />}
+                  />
+                  <Route
+                    path="/my_postings"
+                    render={(props) => <MyPostings {...props} />}
                   />
                   <Redirect from="/" exact to="/home" />
                   <Redirect to="/not-found"></Redirect>
