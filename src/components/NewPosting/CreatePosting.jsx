@@ -15,14 +15,15 @@ import Button from "@material-ui/core/Button";
 class CreatePosting extends Component {
   state = {
     step: 1,
-    typeOfHousing: this.props.data,
+    id: "",
+    typeOfHousing: "",
     totalPersonRequired: "",
     city: "",
     state: "",
     totalBeds: "123",
     typeOfBathroom: "",
     streetAddress: "",
-    wifi: this.props.data,
+    wifi: false,
     electricity: false,
     laundary: false,
     water: false,
@@ -34,7 +35,7 @@ class CreatePosting extends Component {
     phoneNumber: "",
     price: "",
     region: "",
-    title: this.props.data,
+    title: "",
     verified: true,
     images: [],
     open: false,
@@ -73,31 +74,33 @@ class CreatePosting extends Component {
     const { email } = getCurrentUserEmail();
     console.log(this.state.images);
     try {
-      await http.post("https://apiforrenting.herokuapp.com/newposting", {
-        email: email,
-        typeOfHousing: this.state.typeOfHousing,
-        totalPersonRequired: this.state.totalPersonRequired,
-        city: this.state.city,
-        state: this.state.state,
-        totalBeds: this.state.totalBeds,
-        typeOfBathroom: this.state.typeOfBathroom,
-        streetAddress: this.state.streetAddress,
-        wifi: this.state.wifi,
-        electricity: this.state.electricity,
-        laundary: this.state.laundary,
-        water: this.state.water,
-        parking: this.state.parking,
-        microwave: this.state.microwave,
-        refrigerator: this.state.refrigerator,
-        ownerLiving: this.state.ownerLiving,
-        description: this.state.description,
-        phoneNumber: this.state.phoneNumber,
-        price: this.state.price,
-        region: this.state.region,
-        images: this.state.images,
-        title: this.state.title,
-      });
-      window.location = "/";
+      await http
+        .post("https://apiforrenting.herokuapp.com/newposting", {
+          id: this.state.id,
+          email: email,
+          typeOfHousing: this.state.typeOfHousing,
+          totalPersonRequired: this.state.totalPersonRequired,
+          city: this.state.city,
+          state: this.state.state,
+          totalBeds: this.state.totalBeds,
+          typeOfBathroom: this.state.typeOfBathroom,
+          streetAddress: this.state.streetAddress,
+          wifi: this.state.wifi,
+          electricity: this.state.electricity,
+          laundary: this.state.laundary,
+          water: this.state.water,
+          parking: this.state.parking,
+          microwave: this.state.microwave,
+          refrigerator: this.state.refrigerator,
+          ownerLiving: this.state.ownerLiving,
+          description: this.state.description,
+          phoneNumber: this.state.phoneNumber,
+          price: this.state.price,
+          region: this.state.region,
+          images: this.state.images,
+          title: this.state.title,
+        })
+        .then((response) => console.log(response));
     } catch (ex) {
       console.log(ex);
     }

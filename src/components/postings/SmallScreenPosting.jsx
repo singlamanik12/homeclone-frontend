@@ -16,7 +16,7 @@ class SmallScreenPosting extends Component {
   state = { data: {}, images: [], load: false };
   componentDidMount = async () => {
     await http
-      .get(`http://apiforrenting.herokuapp.com/posting?id=${this.props.id}`)
+      .get(`https://apiforrenting.herokuapp.com/posting?id=${this.props.id}`)
       .then((response) =>
         this.setState({ load: response, data: response.data.posting })
       );
