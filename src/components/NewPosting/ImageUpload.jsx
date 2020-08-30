@@ -20,8 +20,7 @@ class ImageUpload extends Component {
       load,
     } = this.props;
     return (
-      <Grid container>
-        {console.log(load)}
+      <Grid container style={{ marginBottom: "50px" }}>
         <Grid item lg={3} xs={1} container></Grid>
         <Grid item lg={9} xs={10} container direction="column">
           <Typography
