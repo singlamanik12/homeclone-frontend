@@ -25,7 +25,7 @@ class BigScreenPosting extends Component {
       <Grid item xs={12} container style={{ marginBottom: "50px" }}>
         <Grid item lg={1}></Grid>
         <Grid item xs={12} lg={10} container direction="column">
-          <Grid item xs={12} container style={{ marginTop: "30px" }}>
+          <Grid item xs={12} container style={{ marginTop: "20px" }}>
             <br />
             <TitleHeading id={id} data={data} />
             <Grid

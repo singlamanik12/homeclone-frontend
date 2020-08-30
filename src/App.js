@@ -10,6 +10,8 @@ import AppBar from "@material-ui/core/AppBar";
 import SideBar from "./components/SideBar/SideBar";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MyPostings from "./components/MyPostings.jsx/MyPostings";
+import PreviewPosting from "./components/MyPostings.jsx/PreviewPosting";
+import EditPostingForm from "./components/MyPostings.jsx/EditPostingForm";
 const RegisterForm = lazy(() => import("./components/Form/RegisterForm"));
 const LoginForm = lazy(() => import("./components/Form/LoginForm"));
 const Forgot = lazy(() => import("./components/Form/Forgot"));
@@ -137,6 +139,14 @@ class App extends Component {
                   <Route
                     path="/my_postings"
                     render={(props) => <MyPostings {...props} />}
+                  />
+                  <Route
+                    path="/preview_edit_posting/:id"
+                    render={(props) => <PreviewPosting {...props} />}
+                  />
+                  <Route
+                    path="/edit_posting_details/:id"
+                    render={(props) => <EditPostingForm {...props} />}
                   />
                   <Redirect from="/" exact to="/home" />
                   <Redirect to="/not-found"></Redirect>

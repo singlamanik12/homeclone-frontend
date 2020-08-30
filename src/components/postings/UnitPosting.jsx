@@ -79,9 +79,6 @@ class UnitPosting extends Component {
             <Typography variant="body1" color="textSecondary" component="p">
               {data.streetAddress}
             </Typography>
-            {/* <Typography variant="body1" color="textSecondary" component="p">
-              {data.city + ", " + data.state}
-            </Typography> */}
           </CardContent>
         </CardActionArea>
 

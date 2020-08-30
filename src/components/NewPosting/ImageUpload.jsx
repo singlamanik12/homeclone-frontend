@@ -21,7 +21,8 @@ class ImageUpload extends Component {
     } = this.props;
     return (
       <Grid container>
-        {console.log(load)};<Grid item lg={3} xs={1} container></Grid>
+        {console.log(load)}
+        <Grid item lg={3} xs={1} container></Grid>
         <Grid item lg={9} xs={10} container direction="column">
           <Typography
             variant="subtitle1"
