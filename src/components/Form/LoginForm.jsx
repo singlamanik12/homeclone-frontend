@@ -1,8 +1,8 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./Form";
-import { Link } from "react-router-dom";
-
+import { Link, Redirect } from "react-router-dom";
+import auth from "./../../services/JwtServices";
 import * as logService from "../../services/loginService";
 
 import { Typography } from "@material-ui/core";
@@ -28,6 +28,7 @@ class LoginForm extends Form {
     }
   };
   render() {
+    if (auth.getCurrentUser()) return <Redirect to="/" />;
     return (
       <React.Fragment>
         <Typography

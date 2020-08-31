@@ -59,7 +59,6 @@ class UnitPosting extends Component {
           <CardMedia
             style={{ height: 0, paddingTop: "56.25%" }}
             image={data.images[0]}
-            title="Paella dish"
           />
 
           <CardContent>

@@ -12,6 +12,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import MyPostings from "./components/MyPostings.jsx/MyPostings";
 import PreviewPosting from "./components/MyPostings.jsx/PreviewPosting";
 import EditPostingForm from "./components/MyPostings.jsx/EditPostingForm";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 const RegisterForm = lazy(() => import("./components/Form/RegisterForm"));
 const LoginForm = lazy(() => import("./components/Form/LoginForm"));
 const Forgot = lazy(() => import("./components/Form/Forgot"));
@@ -100,19 +101,19 @@ class App extends Component {
                     path="/login"
                     render={(props) => <LoginForm {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/forgot"
                     render={(props) => <Forgot {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/change_password/:id"
                     render={(props) => <ChangePassword {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/confirmation/:id"
                     render={(props) => <Confirmation {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/logout"
                     render={(props) => <Logout {...props} />}
                   />
@@ -120,11 +121,11 @@ class App extends Component {
                     path="/signup"
                     render={(props) => <SignupUI {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/create"
                     render={(props) => <CreatePosting {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/posting_details/:id"
                     render={(props) => <OpenPosting {...props} />}
                   />
@@ -136,15 +137,15 @@ class App extends Component {
                     path="/terms"
                     render={(props) => <Terms {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/my_postings"
                     render={(props) => <MyPostings {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/preview_edit_posting/:id"
                     render={(props) => <PreviewPosting {...props} />}
                   />
-                  <Route
+                  <ProtectedRoute
                     path="/edit_posting_details/:id"
                     render={(props) => <EditPostingForm {...props} />}
                   />

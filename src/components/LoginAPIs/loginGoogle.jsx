@@ -2,21 +2,26 @@ import React from "react";
 import GoogleLogin from "react-google-login";
 import * as registerService from "../../services/registrationService";
 import { Typography } from "@material-ui/core";
-const GoLogin = () => {
+const GoLogin = ({ track }) => {
   const ButtonText = <Typography variant="h6">Sign up with Google</Typography>;
+
   const responseGoogle = async (response) => {
-    const data = { username: "", email: "" };
-    data.username = response.profileObj.name;
-    data.email = response.profileObj.email;
-    // console.log(response);
     try {
+      const data = { username: "", email: "" };
+      data.username = response.profileObj.name;
+      console.log(response);
+      data.email = response.profileObj.email;
+      // console.log(response);
+
       // console.log(await registerService.register(data));
       const { data: jwt } = await registerService.register(data);
       console.log(jwt);
       localStorage.setItem("token", jwt);
       localStorage.setItem("source", response.profileObj.imageUrl);
-      window.location = "/";
-    } catch (error) {}
+      window.location = track ? track.from.pathname : "/";
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

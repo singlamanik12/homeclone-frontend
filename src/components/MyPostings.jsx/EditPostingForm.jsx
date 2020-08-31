@@ -107,7 +107,7 @@ class EditPostingForm extends Component {
     try {
       await http
         .post("https://apiforrenting.herokuapp.com/newposting", {
-          id: this.state.id,
+          id: this.props.match.params.id,
           email: email,
           typeOfHousing: this.state.typeOfHousing,
           totalPersonRequired: this.state.totalPersonRequired,
@@ -132,6 +132,7 @@ class EditPostingForm extends Component {
           title: this.state.title,
         })
         .then((response) => console.log(response));
+      window.location = "/my_postings";
     } catch (ex) {
       console.log(ex);
     }

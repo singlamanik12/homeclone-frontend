@@ -1,9 +1,9 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./Form";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import * as registerService from "../../services/registrationService";
-
+import auth from "./../../services/JwtServices";
 import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 class RegisterForm extends Form {
@@ -34,6 +34,7 @@ class RegisterForm extends Form {
     }
   };
   render() {
+    if (auth.getCurrentUser()) return <Redirect to="/" />;
     return (
       <React.Fragment>
         <Typography

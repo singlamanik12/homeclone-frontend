@@ -1,7 +1,7 @@
 import React from "react";
 import * as registerService from "../../services/registrationService";
 import FacebookLogin from "react-facebook-login";
-const FaLogin = () => {
+const FaLogin = ({ track }) => {
   const responseFacebook = async (response) => {
     const data = { username: "", email: "", password: "default" };
     data.username = response.name;
@@ -13,7 +13,7 @@ const FaLogin = () => {
       console.log(jwt);
       localStorage.setItem("token", jwt);
       localStorage.setItem("source", response.picture.data.url);
-      window.location = "/";
+      window.location = track ? track.from.pathname : "/";
     } catch (error) {}
   };
   return (
