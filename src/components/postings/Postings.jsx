@@ -10,8 +10,10 @@ class Postings extends Component {
     city: "All",
     region: "All",
     page: "0",
+    typeOfHousing: "All",
   };
   handleChange = (e) => {
+    console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
   render() {
@@ -23,6 +25,7 @@ class Postings extends Component {
               handleChange={this.handleChange}
               city={this.state.city}
               region={this.state.region}
+              typeOfHousing={this.state.typeOfHousing}
             />
           </Grid>
           <Grid item xs={12} container>
@@ -34,6 +37,7 @@ class Postings extends Component {
                     city={this.state.city}
                     region={this.state.region}
                     page={this.state.page}
+                    typeOfHousing={this.state.typeOfHousing}
                   />
                 )}
               />

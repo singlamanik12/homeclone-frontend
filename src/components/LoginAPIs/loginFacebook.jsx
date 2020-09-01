@@ -3,7 +3,7 @@ import * as registerService from "../../services/registrationService";
 import FacebookLogin from "react-facebook-login";
 const FaLogin = ({ track }) => {
   const responseFacebook = async (response) => {
-    const data = { username: "", email: "", password: "default" };
+    const data = { username: "", email: "" };
     data.username = response.name;
     data.email = response.email;
     // console.log(response);
@@ -19,7 +19,6 @@ const FaLogin = ({ track }) => {
   return (
     <FacebookLogin
       appId="1941888859275550"
-      //autoLoad
       fields="name,email,picture"
       // onClick={componentClicked}
       disableMobileRedirect={true}

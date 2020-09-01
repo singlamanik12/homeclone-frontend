@@ -19,6 +19,7 @@ class BigScreenPosting extends Component {
     // this.setState({ data });
   };
   render() {
+    console.log(this.state.load);
     const { data } = this.state;
     const { id } = this.props;
     return this.state.load ? (
@@ -36,7 +37,7 @@ class BigScreenPosting extends Component {
               <ImageGrid id={id} images={data.images} />
             </Grid>
             <Grid item xs={12} container>
-              <LeftHandSide data={data} />
+              <LeftHandSide data={data} owner={this.state.load.data.owner} />
               <RightHandSide data={data} />
             </Grid>
           </Grid>

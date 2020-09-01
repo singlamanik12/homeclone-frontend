@@ -125,7 +125,7 @@ class App extends Component {
                     path="/create"
                     render={(props) => <CreatePosting {...props} />}
                   />
-                  <ProtectedRoute
+                  <Route
                     path="/posting_details/:id"
                     render={(props) => <OpenPosting {...props} />}
                   />
@@ -154,6 +154,7 @@ class App extends Component {
                 </Switch>
               </Suspense>
             </Grid>
+            <Grid item xs={12} style={{ marginBottom: "80px" }}></Grid>
           </Grid>
         </Grid>
       </React.Fragment>

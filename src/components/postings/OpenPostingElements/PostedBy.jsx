@@ -9,12 +9,13 @@ class PostedBy extends Component {
         {" "}
         <Grid item xs={6} style={{ marginTop: "10px" }}>
           <Typography variant="h6" style={{ fontFamily: "Noto Sans JP" }}>
-            {this.props.data.email}
+            Posted By:{" "}
+            <span style={{ color: "#0f2862" }}>{this.props.owner}</span>
           </Typography>
         </Grid>
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <Avatar style={{ width: "60px", height: "60px" }}>M</Avatar>
-        </Grid>
+        </Grid> */}
       </>
     );
   }

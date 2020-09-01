@@ -7,11 +7,8 @@ import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Typography from "@material-ui/core/Typography";
-
 import ShareIcon from "@material-ui/icons/Share";
-
 import { Link as RouterLink } from "react-router-dom";
-
 class UnitPosting extends Component {
   state = {
     expanded: false,

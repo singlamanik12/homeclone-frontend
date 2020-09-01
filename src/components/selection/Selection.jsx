@@ -5,7 +5,8 @@ import Grid from "@material-ui/core/Grid";
 
 import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
+import filter from "./filter.png";
+import Filter from "./filter";
 class Selection extends Component {
   state = { data: null, citiesList: [], loaded: false };
 
@@ -21,17 +22,18 @@ class Selection extends Component {
             container
             direction="row"
             justify="center"
+            alignItems="center"
             style={{ marginTop: "30px" }}
           >
             <Grid item xs={1}></Grid>
-            <Grid item xs={5}>
+            <Grid item xs={4}>
               <RenderOptions
                 value={this.props.city}
                 handleChange={this.props.handleChange}
               />
             </Grid>
 
-            <Grid item xs={5}>
+            <Grid item xs={4}>
               <FormControl variant="outlined" style={{ minWidth: "100%" }}>
                 <InputLabel id="demo-simple-select-outlined-label">
                   Region
@@ -53,6 +55,13 @@ class Selection extends Component {
                   <MenuItem value={"West"}>West</MenuItem>
                 </Select>
               </FormControl>
+            </Grid>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={1}>
+              <Filter
+                value={this.props.typeOfHousing}
+                handleChange={this.props.handleChange}
+              />
             </Grid>
             <Grid item xs={1}></Grid>
           </Grid>

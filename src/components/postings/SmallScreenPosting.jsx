@@ -13,7 +13,7 @@ import CustomDivider from "./OpenPostingElements/CustomDivider";
 import http from "../../services/httpServices";
 import CircularProgress from "@material-ui/core/CircularProgress";
 class SmallScreenPosting extends Component {
-  state = { data: {}, images: [], load: false };
+  state = { data: {}, images: [], load: false, lata: {} };
   componentDidMount = async () => {
     await http
       .get(`https://apiforrenting.herokuapp.com/posting?id=${this.props.id}`)
@@ -83,7 +83,7 @@ class SmallScreenPosting extends Component {
               variant="h3"
               style={{ fontFamily: "Noto Sans JP", color: "#cc0000" }}
             >
-              $365
+              ${data.price}
             </Typography>
           </Toolbar>
         </AppBar>

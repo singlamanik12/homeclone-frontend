@@ -9,7 +9,7 @@ class IteratePostings extends Component {
     console.log(this.state.data);
 
     const { data } = await http.get(
-      `https://apiforrenting.herokuapp.com/postings?city=${this.props.city}&region=${this.props.region}&start=${this.props.page}`
+      `https://apiforrenting.herokuapp.com/postings?city=${this.props.city}&region=${this.props.region}&page=${this.props.page}&typeOfHousing=${this.props.typeOfHousing}`
     );
     console.log(data);
     this.setState({ data });
@@ -17,14 +17,16 @@ class IteratePostings extends Component {
   render() {
     return (
       <>
-        <Grid direction="column" container>
-          <Grid item xs={12} container>
+        <Grid container>
+          <Grid item lg={1}></Grid>
+          <Grid item xs={12} lg={8} container>
             {this.state.data.map((item) => (
-              <Grid item xs={12} md={4} style={{ padding: "10px" }}>
+              <Grid item xs={12} md={6} style={{ padding: "10px" }}>
                 <UnitPosting data={item} />
               </Grid>
             ))}
           </Grid>
+          <Grid item lg={3}></Grid>
         </Grid>
       </>
     );
