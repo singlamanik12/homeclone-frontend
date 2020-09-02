@@ -56,14 +56,14 @@ class Selection extends Component {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={2}></Grid>
             <Grid item xs={1}>
               <Filter
                 value={this.props.typeOfHousing}
                 handleChange={this.props.handleChange}
               />
             </Grid>
-            <Grid item xs={1}></Grid>
+            {/* <Grid item xs={1}></Grid> */}
           </Grid>
           <Grid item xs={12} style={{ marginTop: "6px" }}>
             <div

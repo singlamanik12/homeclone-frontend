@@ -5,16 +5,27 @@ import IteratePostings from "./IteratePostings";
 import Selection from "../selection/Selection";
 
 import Footer from "../common/footer";
+import Navigation from "./Navigation";
 class Postings extends Component {
   state = {
     city: "All",
     region: "All",
-    page: "0",
+    page: 0,
     typeOfHousing: "All",
+  };
+  handleNextPage = () => {
+    let page = this.state.page;
+    page += 1;
+    this.setState({ page });
+  };
+  handlePrevPage = () => {
+    let page = this.state.page;
+    page -= 1;
+    this.setState({ page });
   };
   handleChange = (e) => {
     console.log(e.target.value);
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, page: 0 });
   };
   render() {
     return (
@@ -45,6 +56,13 @@ class Postings extends Component {
               <Redirect from="/home" exact to="/home/postings" />
               <Redirect to="/not-found"></Redirect>
             </Switch>
+          </Grid>
+          <Grid item xs={12} container>
+            <Navigation
+              handleNextPage={this.handleNextPage}
+              handlePrevPage={this.handlePrevPage}
+              page={this.state.page}
+            />
           </Grid>
         </Grid>
         <Footer />

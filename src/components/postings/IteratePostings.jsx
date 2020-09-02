@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, CircularProgress } from "@material-ui/core";
 
 import UnitPosting from "./UnitPosting";
 import http from "../../services/httpServices";
@@ -17,17 +17,30 @@ class IteratePostings extends Component {
   render() {
     return (
       <>
-        <Grid container>
-          <Grid item lg={1}></Grid>
-          <Grid item xs={12} lg={8} container>
-            {this.state.data.map((item) => (
-              <Grid item xs={12} md={6} style={{ padding: "10px" }}>
-                <UnitPosting data={item} />
-              </Grid>
-            ))}
+        {this.state.data ? (
+          <Grid container>
+            <Grid item lg={1}></Grid>
+            <Grid item xs={12} lg={8} container spacing={4}>
+              {this.state.data.map((item, i) => (
+                <Grid item xs={12} md={6} style={{ padding: "10px" }}>
+                  <UnitPosting key={i} data={item} />
+                </Grid>
+              ))}
+            </Grid>
+            <Grid item lg={3}></Grid>
           </Grid>
-          <Grid item lg={3}></Grid>
-        </Grid>
+        ) : (
+          <div
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <CircularProgress color="secondary" />
+          </div>
+        )}
       </>
     );
   }

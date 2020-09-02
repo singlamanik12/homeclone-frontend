@@ -18,9 +18,9 @@ class SignupUI extends Component {
         <Typography
           variant="h2"
           align="center"
-          style={{ fontFamily: "Pacifico" }}
+          style={{ fontFamily: "Noto Sans JP" }}
         >
-          Welcome to RoofTail
+          Sign Up
         </Typography>
         <div style={{ marginBlockStart: "60px" }} />
         <Grid

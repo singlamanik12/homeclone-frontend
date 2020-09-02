@@ -63,6 +63,7 @@ class App extends Component {
                       fontSize: "23px",
                       margin: "5px",
                       fontWeight: "bold",
+                      fontFamily: "Noto Sans JP",
                     }}
                   >
                     rooftail
@@ -101,11 +102,11 @@ class App extends Component {
                     path="/login"
                     render={(props) => <LoginForm {...props} />}
                   />
-                  <ProtectedRoute
+                  <Route
                     path="/forgot"
                     render={(props) => <Forgot {...props} />}
                   />
-                  <ProtectedRoute
+                  <Route
                     path="/change_password/:id"
                     render={(props) => <ChangePassword {...props} />}
                   />

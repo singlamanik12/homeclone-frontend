@@ -10,7 +10,7 @@ class PostedBy extends Component {
         <Grid item xs={6} style={{ marginTop: "10px" }}>
           <Typography variant="h6" style={{ fontFamily: "Noto Sans JP" }}>
             Posted By:{" "}
-            <span style={{ color: "#0f2862" }}>{this.props.owner}</span>
+            <span style={{ color: "#007f4f" }}>{this.props.owner}</span>
           </Typography>
         </Grid>
         {/* <Grid item xs={6}>

@@ -62,27 +62,33 @@ class UnitPosting extends Component {
             <Typography
               variant="h5"
               gutterBottom={true}
-              style={{ color: "black" }}
+              style={{ color: "black", fontFamily: "Noto Sans JP" }}
             >
               {"$" + data.price + " /month"}
             </Typography>
-            <Typography variant="subtitle1" style={{ color: "black" }}>
-              {data.typeOfBathroom + " " + data.typeOfHousing}
+            <Typography
+              variant="subtitle1"
+              style={{ color: "black", fontFamily: "Noto Sans JP" }}
+            >
+              {data.typeOfHousing}
             </Typography>
-            <Typography variant="body1" color="textSecondary" component="p">
+            <Typography
+              variant="body1"
+              color="textSecondary"
+              component="p"
+              style={{ fontFamily: "Noto Sans JP" }}
+            >
               {"Available Space : " + data.totalPersonRequired}
             </Typography>
-            <Typography variant="body1" color="textSecondary" component="p">
+            {/* <Typography variant="body1" color="textSecondary" component="p">
               {data.streetAddress}
-            </Typography>
+            </Typography> */}
           </CardContent>
         </CardActionArea>
 
-        <CardActions disableSpacing>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-        </CardActions>
+        {/* <CardActions disableSpacing>
+         
+        </CardActions> */}
       </Card>
     );
   }
