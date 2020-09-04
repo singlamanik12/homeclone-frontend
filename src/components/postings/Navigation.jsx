@@ -21,6 +21,7 @@ class Navigation extends Component {
           <Button
             style={{ float: "right" }}
             color="primary"
+            disabled={!this.props.hasNextPage}
             endIcon={<NavigateNextIcon />}
             onClick={handleNextPage}
           >

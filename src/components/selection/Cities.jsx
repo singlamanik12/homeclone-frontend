@@ -2,7 +2,7 @@ import React from "react";
 import data from "../../tools/cities.json";
 import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
 
-const RenderOptions = ({ handleChange, values }) => {
+const RenderOptions = ({ handleChange, value }) => {
   return (
     <>
       <FormControl variant="outlined" style={{ minWidth: "100%" }}>
@@ -10,13 +10,13 @@ const RenderOptions = ({ handleChange, values }) => {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={values}
+          value={value}
           name="city"
           onChange={handleChange}
           label="City"
         >
-          <MenuItem value="All">
-            <em>All</em>
+          <MenuItem value="">
+            <em>Select City</em>
           </MenuItem>
           {data.map((data, index) => (
             <MenuItem key={index} value={data.city}>

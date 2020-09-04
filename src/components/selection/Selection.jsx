@@ -2,11 +2,18 @@ import React, { Component } from "react";
 
 import RenderOptions from "./Cities";
 import Grid from "@material-ui/core/Grid";
-
-import { FormControl, MenuItem, InputLabel, Select } from "@material-ui/core";
+import data from "../../tools/cities.json";
+import {
+  FormControl,
+  MenuItem,
+  InputLabel,
+  Select,
+  NativeSelect,
+} from "@material-ui/core";
 import { Link } from "react-router-dom";
 import filter from "./filter.png";
 import Filter from "./filter";
+import SelectType from "./SelectType";
 class Selection extends Component {
   state = { data: null, citiesList: [], loaded: false };
 
@@ -25,15 +32,33 @@ class Selection extends Component {
             alignItems="center"
             style={{ marginTop: "30px" }}
           >
-            <Grid item xs={1}></Grid>
-            <Grid item xs={4}>
-              <RenderOptions
-                value={this.props.city}
-                handleChange={this.props.handleChange}
-              />
+            <Grid item xs={1} md={1}></Grid>
+            <Grid item xs={5} md={4}>
+              <FormControl variant="outlined" style={{ minWidth: "100%" }}>
+                <InputLabel id="demo-simple-select-outlined-label">
+                  City
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-outlined-label"
+                  id="demo-simple-select-outlined"
+                  value={this.props.city}
+                  name="city"
+                  onChange={this.props.handleChange}
+                  label="City"
+                >
+                  <MenuItem value="All">
+                    <em>Select</em>
+                  </MenuItem>
+                  {data.map((data, index) => (
+                    <MenuItem key={index} value={data.city}>
+                      {data.city}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </Grid>
 
-            <Grid item xs={4}>
+            <Grid item xs={5} md={4}>
               <FormControl variant="outlined" style={{ minWidth: "100%" }}>
                 <InputLabel id="demo-simple-select-outlined-label">
                   Region
@@ -47,7 +72,7 @@ class Selection extends Component {
                   name="region"
                 >
                   <MenuItem value="All">
-                    <em>Any</em>
+                    <em>Select</em>
                   </MenuItem>
                   <MenuItem value={"North"}>North</MenuItem>
                   <MenuItem value={"South"}>South</MenuItem>
@@ -56,14 +81,37 @@ class Selection extends Component {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={2}></Grid>
-            <Grid item xs={1}>
-              <Filter
+
+            <Grid item xs={1} md={3}>
+              {/* <Filter
                 value={this.props.typeOfHousing}
                 handleChange={this.props.handleChange}
-              />
+              /> */}
             </Grid>
             {/* <Grid item xs={1}></Grid> */}
+          </Grid>
+          <Grid item xs={12} container style={{ marginTop: "10px" }}>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={5}>
+              <FormControl>
+                <NativeSelect
+                  value={this.props.typeOfHousing}
+                  onChange={this.props.handleChange}
+                  name="typeOfHousing"
+                  // className={classes.selectEmpty}
+                  inputProps={{ "aria-label": "Type Of Housing" }}
+                >
+                  <option value="All">Select Type</option>
+                  <option value={"Full Storey"}>Full Storey</option>
+                  <option value={"Apartment"}>Apartment</option>
+                  <option value={"Private Room"}>Private Room</option>
+                  <option value={"Shared Room"}>Shared Room</option>
+                  <option value={"Condo"}>Condo</option>
+                </NativeSelect>
+                {/* <FormHelperText>With visually hidden label</FormHelperText> */}
+              </FormControl>
+            </Grid>
+            <Grid item xs={6}></Grid>
           </Grid>
           <Grid item xs={12} style={{ marginTop: "6px" }}>
             <div
