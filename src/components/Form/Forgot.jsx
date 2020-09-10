@@ -5,6 +5,8 @@ import * as forgotService from "../../services/forgotService";
 import Form from "./Form";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 class Forgot extends Form {
   state = {
     data: { email: "" },
@@ -18,8 +20,20 @@ class Forgot extends Form {
 
   doSubmit = async () => {
     try {
-      await forgotService.forgot(this.state.data);
-      this.setState({ sent: true });
+      await forgotService.forgot(this.state.data).then((response) =>
+        toast.info(
+          "Forgot Password Link is sent to your mail. Check your mail!",
+          {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        )
+      );
     } catch (error) {
       if (error.response && error.response.status === 401) {
         const errors = { ...this.state.errors };
@@ -43,47 +57,14 @@ class Forgot extends Form {
         <Grid container>
           <Grid md={4}></Grid>
           <Grid item xs={12} md={4}>
-            <article className="card-body mx-auto">
-              {this.state.sent && (
-                <div
-                  aria-live="polite"
-                  aria-atomic="true"
-                  style={{
-                    position: "relative",
-                    minHeight: "100px",
-                    width: "600px",
-                  }}
-                >
-                  <Toast
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      right: 0,
-                      width: "500px",
-                    }}
-                  >
-                    <Toast.Header>
-                      <img
-                        src="holder.js/20x20?text=%20"
-                        className="rounded mr-2"
-                        alt=""
-                      />
-                      <strong className="mr-auto">RoofTail</strong>
-                      <small>Happy Living</small>
-                    </Toast.Header>
-                    <Toast.Body>{this.state.message}</Toast.Body>
-                  </Toast>
-                </div>
-              )}
-
-              <form onSubmit={this.handleSubmit}>
-                {this.renderInput("email", "Email")}
-                {this.renderButton("Submit")}
-              </form>
-            </article>
+            <form onSubmit={this.handleSubmit}>
+              {this.renderInput("email", "Email")}
+              {this.renderButton("Submit")}
+            </form>
           </Grid>
           <Grid md={4}></Grid>
         </Grid>
+        <ToastContainer />
       </React.Fragment>
     );
   }

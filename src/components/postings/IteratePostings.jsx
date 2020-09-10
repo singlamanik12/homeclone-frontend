@@ -64,7 +64,21 @@ class IteratePostings extends Component {
           </>
         ) : (
           <Grid item xs={12}>
-            <Typography>{this.state.error}</Typography>
+            <div
+              style={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <Typography
+                variant="body2"
+                style={{ fontFamily: "Noto Sans JP" }}
+              >
+                {this.state.error}
+              </Typography>
+            </div>
           </Grid>
         )}
       </>
