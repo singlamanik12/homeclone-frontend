@@ -3,6 +3,7 @@ import { Grid, Typography } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import UnitPosting from "./UnitPosting";
 import http from "../../services/httpServices";
+import { url } from "../../tools/config.json";
 import Navigation from "./Navigation";
 class IteratePostings extends Component {
   state = { data: {}, loaded: false, error: "" };
@@ -11,7 +12,7 @@ class IteratePostings extends Component {
       console.log(this.state.data);
 
       const { data } = await http.get(
-        `https://apiforrenting.herokuapp.com/postings?city=${this.props.city}&region=${this.props.region}&page=${this.props.page}&typeOfHousing=${this.props.typeOfHousing}`
+        `${url}/postings?city=${this.props.city}&region=${this.props.region}&page=${this.props.page}&typeOfHousing=${this.props.typeOfHousing}`
       );
       console.log(data);
       this.setState({ data, loaded: true });

@@ -45,7 +45,7 @@ class App extends Component {
           <AppBar
             position="static"
             color="transparent"
-            style={{ backgroundColor: "black" }}
+            style={{ backgroundColor: "black", marginBottom: "20px" }}
           >
             <Grid item xs={12} container>
               <SideBar></SideBar>

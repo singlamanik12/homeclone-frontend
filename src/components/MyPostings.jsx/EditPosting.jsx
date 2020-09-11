@@ -60,12 +60,6 @@ class EditPosting extends Component {
               </Typography>
             </CardContent>
           </CardActionArea>
-
-          <CardActions disableSpacing>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
-          </CardActions>
         </Card>
       </>
     );

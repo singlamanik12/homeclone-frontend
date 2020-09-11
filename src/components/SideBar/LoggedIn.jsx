@@ -28,7 +28,14 @@ class LoggedIn extends Component {
               />
             </ListItemAvatar>
             <ListItemText
-              primary={getCurrentUserEmail().name}
+              primary={
+                <Typography
+                  variant="body1"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                >
+                  {getCurrentUserEmail().name}
+                </Typography>
+              }
               secondary={
                 <React.Fragment>
                   <Typography
@@ -46,21 +53,33 @@ class LoggedIn extends Component {
             />
           </ListItem>
           <Divider variant="middle" />
-
+          <ListItem button key="0" component={RouterLink} to="/my_postings">
+            <ListItemText
+              primary={
+                <Typography
+                  variant="body1"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                >
+                  My Postings
+                </Typography>
+              }
+            />
+          </ListItem>
+          <Divider variant="middle" />
           <ListItem button key="1" component={RouterLink} to="/logout">
-            <ListItemIcon style={{ fontSize: "36px" }}>
-              <i class="fa fa-sign-out" aria-hidden="true"></i>
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
+            <ListItemText
+              primary={
+                <Typography
+                  variant="body1"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                >
+                  Logout
+                </Typography>
+              }
+            />
           </ListItem>
-          <ListItem button key="1" component={RouterLink} to="/my_postings">
-            <ListItemIcon style={{ fontSize: "36px" }}>
-              <i class="fa fa-sign-out" aria-hidden="true"></i>
-            </ListItemIcon>
-            <ListItemText primary="My Postings" />
-          </ListItem>
+          <Divider variant="middle" />
         </List>
-        <Divider variant="middle" />
       </>
     );
   }

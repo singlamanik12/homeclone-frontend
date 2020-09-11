@@ -57,12 +57,12 @@ export default function SwipeableTemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       {localStorage.getItem("token") !== null ? <LoggedIn /> : <LoggedOff />}
-      <ListItem button key="1" component={RouterLink} to="/logout">
+      {/* <ListItem button key="1" component={RouterLink} to="/logout">
         <ListItemIcon style={{ fontSize: "36px" }}>
           <i class="fa fa-sign-out" aria-hidden="true"></i>
         </ListItemIcon>
         <ListItemText primary="Logout" />
-      </ListItem>
+      </ListItem> */}
     </div>
   );
   try {

@@ -12,7 +12,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "@material-ui/core/Button";
-
+import { url } from "../../tools/config.json";
 class EditPostingForm extends Component {
   state = {
     step: 1,
@@ -44,7 +44,7 @@ class EditPostingForm extends Component {
   };
   componentDidMount = async () => {
     const { data } = await http.get(
-      `https://apiforrenting.herokuapp.com/posting?id=${this.props.match.params.id}`
+      `${url}/posting?id=${this.props.match.params.id}`
     );
     console.log(data);
     this.setState({
@@ -96,7 +96,7 @@ class EditPostingForm extends Component {
   };
   handleDeleteImage = async (link) => {
     const images = this.state.images.filter((image) => image !== link);
-    await http.post("https://apiforrenting.herokuapp.com/delete", {
+    await http.post(`${url}/delete`, {
       link: link,
     });
     this.setState({ images });
@@ -106,7 +106,7 @@ class EditPostingForm extends Component {
     console.log(this.state.images);
     try {
       await http
-        .post("https://apiforrenting.herokuapp.com/newposting", {
+        .post(`${url}/newposting`, {
           id: this.props.match.params.id,
           email: email,
           typeOfHousing: this.state.typeOfHousing,
@@ -152,7 +152,7 @@ class EditPostingForm extends Component {
       }
     }
     http
-      .post("https://apiforrenting.herokuapp.com/upload", datas, {
+      .post(`${url}/upload`, datas, {
         headers: {
           "Content-Type": `multipart/form-data; boundary=${datas._boundary}`,
         },

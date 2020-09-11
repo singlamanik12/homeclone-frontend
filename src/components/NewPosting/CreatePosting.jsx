@@ -6,6 +6,7 @@ import Information from "./Information";
 import ImageUpload from "./ImageUpload";
 import http from "../../services/httpServices";
 import { getCurrentUserEmail } from "./../../services/JwtServices";
+import { url } from "../../tools/config.json";
 class CreatePosting extends Component {
   state = {
     step: 1,
@@ -59,7 +60,7 @@ class CreatePosting extends Component {
   };
   handleDeleteImage = async (link) => {
     const images = this.state.images.filter((image) => image !== link);
-    await http.post("https://apiforrenting.herokuapp.com/delete", {
+    await http.post(`${url}/delete`, {
       link: link,
     });
     this.setState({ images });
@@ -69,7 +70,7 @@ class CreatePosting extends Component {
     console.log(this.state.images);
     try {
       await http
-        .post("https://apiforrenting.herokuapp.com/newposting", {
+        .post(`${url}/newposting`, {
           id: this.state.id,
           email: email,
           typeOfHousing: this.state.typeOfHousing,
@@ -115,7 +116,7 @@ class CreatePosting extends Component {
       }
     }
     http
-      .post("https://apiforrenting.herokuapp.com/upload", datas, {
+      .post(`${url}/upload`, datas, {
         headers: {
           "Content-Type": `multipart/form-data; boundary=${datas._boundary}`,
         },

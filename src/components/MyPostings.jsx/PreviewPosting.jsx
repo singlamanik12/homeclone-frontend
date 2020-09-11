@@ -29,7 +29,7 @@ class PreviewPosting extends Component {
               <button
                 type="button"
                 class="btn btn-danger"
-                style={{ float: "right", marginTop: "20px" }}
+                style={{ float: "right" }}
               >
                 Edit
               </button>

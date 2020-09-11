@@ -12,11 +12,12 @@ import Description from "./OpenPostingElements/Description";
 import CustomDivider from "./OpenPostingElements/CustomDivider";
 import http from "../../services/httpServices";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { url } from "../../tools/config.json";
 class SmallScreenPosting extends Component {
   state = { data: {}, images: [], load: false, lata: {} };
   componentDidMount = async () => {
     await http
-      .get(`https://apiforrenting.herokuapp.com/posting?id=${this.props.id}`)
+      .get(`${url}/posting?id=${this.props.id}`)
       .then((response) =>
         this.setState({ load: response, data: response.data.posting })
       );
@@ -49,7 +50,7 @@ class SmallScreenPosting extends Component {
               <TitleHeading data={data} />
             </Grid>
             <Grid item xs={12} container>
-              <PostedBy data={data} />
+              <PostedBy owner={this.state.load.data.owner} />
             </Grid>
             <Grid item xs={12} container>
               <CustomDivider />

@@ -30,7 +30,7 @@ class Selection extends Component {
             direction="row"
             justify="center"
             alignItems="center"
-            style={{ marginTop: "30px" }}
+            style={{ marginTop: "10px" }}
           >
             <Grid item xs={1} md={1}></Grid>
             <Grid item xs={5} md={4}>
@@ -113,23 +113,16 @@ class Selection extends Component {
             </Grid>
             <Grid item xs={6}></Grid>
           </Grid>
-          <Grid item xs={12} style={{ marginTop: "6px" }}>
+          {/* <Grid item xs={12} style={{ marginTop: "6px" }}>
             <div
               className="alert alert-light alert-dismissible fade show"
               role="alert"
               style={{ fontSize: "15px", padding: "1px" }}
             >
               Want to post your place ,<Link to="/create">Click here</Link>
-              {/* <button
-            type="button"
-            className="close"
-            data-dismiss="alert"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button> */}
+              
             </div>
-          </Grid>
+          </Grid> */}
         </Grid>
       </React.Fragment>
     );

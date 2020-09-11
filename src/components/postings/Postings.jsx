@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch, Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import IteratePostings from "./IteratePostings";
 import Selection from "../selection/Selection";
@@ -14,7 +14,7 @@ class Postings extends Component {
   };
   handleChange = (e) => {
     console.log(e.target.value);
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, page: 0 });
   };
   handleNextPage = () => {
     let page = this.state.page;
@@ -30,6 +30,13 @@ class Postings extends Component {
     return (
       <React.Fragment>
         <Grid container>
+          <Grid item xs={12}>
+            <Link to="/create">
+              <span style={{ float: "right" }} className="badge badge-success">
+                Create Posting
+              </span>
+            </Link>
+          </Grid>
           <Grid item xs={12}>
             <Selection
               handleChange={this.handleChange}
@@ -50,7 +57,7 @@ class Postings extends Component {
                     typeOfHousing={this.state.typeOfHousing}
                     handleNextPage={this.handleNextPage}
                     handlePrevPage={this.handlePrevPage}
-                    pqage={this.state.page}
+                    page={this.state.page}
                   />
                 )}
               />

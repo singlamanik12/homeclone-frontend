@@ -9,7 +9,6 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link as RouterLink } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import PersonIcon from "@material-ui/icons/Person";
-
 class LoggedOff extends Component {
   state = {};
   render() {
@@ -28,14 +27,21 @@ class LoggedOff extends Component {
               </Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary="Sign in"
+              primary={
+                <Typography
+                  variant="body1"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                >
+                  Sign in
+                </Typography>
+              }
               secondary={
                 <React.Fragment>
                   <Typography
                     component="span"
                     variant="body2"
                     // className={classes.inline}
-                    color="textPrimary"
+                    color="textSecondary"
                   >
                     {" "}
                     Feel the RoofTail
@@ -46,18 +52,32 @@ class LoggedOff extends Component {
             />
           </ListItem>
           <Divider variant="middle" />
-          <ListItem button key="2" component={RouterLink} to="/login">
-            <ListItemIcon>
-              <i class="fa fa-sign-in" aria-hidden="true"></i>
-            </ListItemIcon>
-            <ListItemText primary="Login" />
+          <ListItem button key="1" component={RouterLink} to="/create">
+            <ListItemText
+              primary={
+                <Typography
+                  variant="body1"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                >
+                  Create Posting
+                </Typography>
+              }
+            />
           </ListItem>
-          <ListItem button key="1" component={RouterLink} to="/my_postings">
-            <ListItemIcon style={{ fontSize: "36px" }}>
-              <i class="fa fa-sign-out" aria-hidden="true"></i>
-            </ListItemIcon>
-            <ListItemText primary="My Postings" />
+          <Divider variant="middle" />
+          <ListItem button key="2" component={RouterLink} to="/signup">
+            <ListItemText
+              primary={
+                <Typography
+                  variant="body1"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                >
+                  Signup / Login
+                </Typography>
+              }
+            />
           </ListItem>
+          <Divider variant="middle" />
         </List>
       </>
     );

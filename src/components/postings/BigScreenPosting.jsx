@@ -6,11 +6,12 @@ import RightHandSide from "./BigScreenPostingSides.jsx/RightHandSide";
 import LeftHandSide from "./BigScreenPostingSides.jsx/LeftHandSide";
 import http from "../../services/httpServices";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { url } from "../../tools/config.json";
 class BigScreenPosting extends Component {
   state = { data: {}, images: [], load: false };
   componentDidMount = async () => {
     await http
-      .get(`https://apiforrenting.herokuapp.com/posting?id=${this.props.id}`)
+      .get(`${url}/posting?id=${this.props.id}`)
       .then((response) =>
         this.setState({ load: response, data: response.data.posting })
       );
