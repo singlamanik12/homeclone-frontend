@@ -20,13 +20,15 @@ class PostingOutline extends Component {
         <Grid container>
           <Grid item lg={3} xs={1} container></Grid>
           <Grid item lg={9} xs={10} container direction="column">
-            <Typography
-              variant="h3"
-              style={{ fontFamily: "Noto Sans JP" }}
-              gutterBottom
-            >
-              Let's start
-            </Typography>
+            <Grid item xs={12}>
+              <Typography
+                variant="h3"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Let's start
+              </Typography>
+            </Grid>
             <br />
             {/* <h2>Outline</h2> */}
             <Grid item xs={12}>
@@ -37,6 +39,8 @@ class PostingOutline extends Component {
               >
                 Type Of Housing
               </Typography>
+            </Grid>
+            <Grid item xs={12}>
               <FormControl variant="outlined" style={{ width: "100%" }}>
                 <InputLabel id="demo-simple-select-outlined-label">
                   Type of Housing
@@ -57,8 +61,10 @@ class PostingOutline extends Component {
                   <MenuItem value={"Condo"}>Condo</MenuItem>
                 </Select>
               </FormControl>
-              <br />
-              <br />
+            </Grid>
+            <br />
+            <br />
+            <Grid item xs={12}>
               <Typography
                 variant="h6"
                 style={{ fontFamily: "Noto Sans JP" }}
@@ -66,6 +72,8 @@ class PostingOutline extends Component {
               >
                 Vacancies
               </Typography>
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 style={{ width: "100%" }}
                 id="outlined-number"
@@ -79,8 +87,10 @@ class PostingOutline extends Component {
                 }}
                 variant="outlined"
               />
-              <br />
-              <br />
+            </Grid>
+            <br />
+            <br />
+            <Grid item xs={12}>
               <Typography
                 variant="h6"
                 style={{ fontFamily: "Noto Sans JP" }}
@@ -88,6 +98,8 @@ class PostingOutline extends Component {
               >
                 Title
               </Typography>
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 style={{ width: "100%" }}
                 id="outlined-basic"
@@ -97,12 +109,13 @@ class PostingOutline extends Component {
                 onChange={handleChange}
                 value={values.title}
               />
-
+            </Grid>
+            <Grid item xs={12}>
               <button
                 type="button"
                 className="btn btn-primary"
                 onClick={nextStep}
-                style={{ marginInlineStart: "85%", marginTop: "50px" }}
+                style={{ float: "right", marginTop: "50px" }}
                 disabled={
                   values.totalPersonRequired === "" ||
                   values.typeOfHousing === "" ||

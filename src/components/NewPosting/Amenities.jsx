@@ -25,21 +25,25 @@ class Amenities extends Component {
         <Grid item lg={3} xs={1} container></Grid>
 
         <Grid item lg={9} xs={10} container direction="column">
-          <Typography
-            variant="h3"
-            style={{ fontFamily: "Noto Sans JP" }}
-            gutterBottom
-          >
-            Basic Details
-          </Typography>
+          <Grid item xs={12}>
+            <Typography
+              variant="h3"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Basic Details
+            </Typography>
+          </Grid>
           <br />
-          <Typography
-            variant="h6"
-            style={{ fontFamily: "Noto Sans JP" }}
-            gutterBottom
-          >
-            Basic Amenities
-          </Typography>
+          <Grid item xs={12}>
+            <Typography
+              variant="h6"
+              style={{ fontFamily: "Noto Sans JP" }}
+              gutterBottom
+            >
+              Basic Amenities
+            </Typography>
+          </Grid>
           <Grid item xs={12}>
             <FormControlLabel
               control={
@@ -127,7 +131,9 @@ class Amenities extends Component {
               }
               label="Microwave"
             />
-            <br />
+          </Grid>
+          <br />
+          <Grid item xs={12}>
             <Typography
               variant="h6"
               style={{ fontFamily: "Noto Sans JP" }}
@@ -135,6 +141,8 @@ class Amenities extends Component {
             >
               Type Of Bathroom
             </Typography>
+          </Grid>
+          <Grid item xs={12}>
             <FormControl variant="outlined" style={{ width: "100%" }}>
               <InputLabel id="demo-simple-select-outlined-label">
                 Type of Bathroom
@@ -156,8 +164,10 @@ class Amenities extends Component {
                 <MenuItem value={"Shared"}>Shared</MenuItem>
               </Select>
             </FormControl>
-            <br />
-            <br />
+          </Grid>
+          <br />
+          <br />
+          <Grid item xs={12}>
             <Typography
               variant="h6"
               style={{ fontFamily: "Noto Sans JP" }}
@@ -165,6 +175,8 @@ class Amenities extends Component {
             >
               Additional Information
             </Typography>
+          </Grid>
+          <Grid item xs={12}>
             <TextareaAutosize
               style={{ width: "100%" }}
               aria-label="minimum height"
@@ -174,8 +186,10 @@ class Amenities extends Component {
               name="description"
               value={values.description}
             />
-            <br />
-            <br />
+          </Grid>
+          <br />
+          <br />
+          <Grid item xs={12}>
             <Typography
               variant="h6"
               style={{ fontFamily: "Noto Sans JP" }}
@@ -183,6 +197,8 @@ class Amenities extends Component {
             >
               Price per month
             </Typography>
+          </Grid>
+          <Grid item xs={12}>
             <FormControl fullWidth variant="outlined">
               <InputLabel htmlFor="outlined-adornment-amount">Price</InputLabel>
               <OutlinedInput
@@ -197,32 +213,32 @@ class Amenities extends Component {
                 labelWidth={40}
               />
             </FormControl>
-            <br />
-            <br />
-            <br />
-            <Grid item xs={12} container style={{ marginBottom: "30px" }}>
-              <Grid item>
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={prevStep}
-                >
-                  Back
-                </button>
-              </Grid>
-              <Grid item xs={7} lg={9} />
-              <Grid item>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={nextStep}
-                  disabled={values.price === "" || values.typeOfBathroom === ""}
-                >
-                  Next
-                </button>
-              </Grid>
-              <Grid item xs={1} />
+          </Grid>
+          <br />
+          <br />
+          <br />
+          <Grid item xs={12} container style={{ marginBottom: "30px" }}>
+            <Grid item>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={prevStep}
+              >
+                Back
+              </button>
             </Grid>
+            <Grid item xs={7} lg={9} />
+            <Grid item>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={nextStep}
+                disabled={values.price === "" || values.typeOfBathroom === ""}
+              >
+                Next
+              </button>
+            </Grid>
+            <Grid item xs={1} />
           </Grid>
         </Grid>
       </Grid>

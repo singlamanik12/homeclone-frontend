@@ -24,31 +24,37 @@ class Information extends Component {
         <Grid container>
           <Grid item lg={3} xs={1} container></Grid>
           <Grid item lg={9} xs={10} container direction="column">
-            <Typography
-              variant="h3"
-              style={{ fontFamily: "Noto Sans JP" }}
-              gutterBottom
-            >
-              Place Information
-            </Typography>
+            <Grid item xs={12}>
+              <Typography
+                variant="h3"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Place Information
+              </Typography>
+            </Grid>
             <br />
             {/* <h2>Outline</h2> */}
-            <Typography
-              variant="h6"
-              style={{ fontFamily: "Noto Sans JP" }}
-              gutterBottom
-            >
-              Street Address
-            </Typography>
-            <TextField
-              id="streetAddress"
-              label="Street Address"
-              helperText="e.g. 48, Yonge Street"
-              variant="outlined"
-              name="streetAddress"
-              value={values.streetAddress}
-              onChange={handleChange}
-            />
+            <Grid item xs={12}>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Street Address
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="streetAddress"
+                label="Street Address"
+                helperText="e.g. 48, Yonge Street"
+                variant="outlined"
+                name="streetAddress"
+                value={values.streetAddress}
+                onChange={handleChange}
+              />
+            </Grid>
             <br />
             <Grid item xs={12} container>
               <Grid item xs={6}>
@@ -78,13 +84,15 @@ class Information extends Component {
             </Grid>
             <br />
             <br />
-            <Typography
-              variant="h6"
-              style={{ fontFamily: "Noto Sans JP" }}
-              gutterBottom
-            >
-              Region
-            </Typography>
+            <Grid item xs={12}>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Region
+              </Typography>
+            </Grid>
             <Grid item xs={12} container>
               <FormControl variant="outlined" style={{ minWidth: "100%" }}>
                 <InputLabel id="demo-simple-select-outlined-label">
@@ -107,21 +115,25 @@ class Information extends Component {
             </Grid>
             <br />
             <br />
-            <Typography
-              variant="h3"
-              style={{ fontFamily: "Noto Sans JP" }}
-              gutterBottom
-            >
-              Contact Information
-            </Typography>
+            <Grid item xs={12}>
+              <Typography
+                variant="h3"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Contact Information
+              </Typography>
+            </Grid>
             <br />
-            <Typography
-              variant="h6"
-              style={{ fontFamily: "Noto Sans JP" }}
-              gutterBottom
-            >
-              Phone Number
-            </Typography>
+            <Grid item xs={12}>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
+                Phone Number
+              </Typography>
+            </Grid>
             <Grid item xs={12} container>
               <Grid item xs={2}>
                 <TextField
