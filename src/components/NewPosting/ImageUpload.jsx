@@ -22,14 +22,16 @@ class ImageUpload extends Component {
     return (
       <Grid container style={{ marginBottom: "50px" }}>
         <Grid item lg={3} xs={1} container></Grid>
-        <Grid item lg={9} xs={10} container direction="column">
-          <Typography
-            variant="subtitle1"
-            style={{ fontFamily: "Noto Sans JP", margin: "5px" }}
-            gutterBottom
-          >
-            Please upload at least 4 images of your place
-          </Typography>
+        <Grid item lg={9} xs={10} container>
+          <Grid item xs={12}>
+            <Typography
+              variant="subtitle1"
+              style={{ fontFamily: "Noto Sans JP", margin: "5px" }}
+              gutterBottom
+            >
+              Please upload at least 4 images of your place
+            </Typography>
+          </Grid>
           <Grid item>
             <input
               style={{ display: "none" }}

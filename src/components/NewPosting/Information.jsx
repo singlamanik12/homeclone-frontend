@@ -23,7 +23,7 @@ class Information extends Component {
         {" "}
         <Grid container>
           <Grid item lg={3} xs={1} container></Grid>
-          <Grid item lg={9} xs={10} container direction="column">
+          <Grid item lg={9} xs={10} container>
             <Grid item xs={12}>
               <Typography
                 variant="h3"
