@@ -53,6 +53,20 @@ class LoggedIn extends Component {
             />
           </ListItem>
           <Divider variant="middle" />
+          <ListItem button key="2" component={RouterLink} to="/home/postings">
+            <ListItemText
+              primary={
+                <Typography
+                  variant="body1"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                >
+                  Home
+                </Typography>
+              }
+            />
+          </ListItem>
+          <Divider variant="middle" />
+
           <ListItem button key="0" component={RouterLink} to="/my_postings">
             <ListItemText
               primary={
@@ -74,6 +88,19 @@ class LoggedIn extends Component {
                   style={{ fontFamily: "Noto Sans JP" }}
                 >
                   Logout
+                </Typography>
+              }
+            />
+          </ListItem>
+          <Divider variant="middle" />
+          <ListItem button key="2" component={RouterLink} to="/contactus">
+            <ListItemText
+              primary={
+                <Typography
+                  variant="body1"
+                  style={{ fontFamily: "Noto Sans JP" }}
+                >
+                  Contact us
                 </Typography>
               }
             />

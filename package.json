@@ -4,6 +4,9 @@
   "private": true,
   "proxy": "http://apiforrenting.herokuapp.com/signup",
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
@@ -14,6 +17,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "emotion-theming": "^10.0.27",
     "joi-browser": "^13.4.0",
     "jquery": "^3.5.1",
     "jwt-decode": "^2.2.0",
@@ -62,6 +66,7 @@
     ]
   },
   "devDependencies": {
-    "http-proxy-middleware": "^1.0.5"
+    "http-proxy-middleware": "^1.0.5",
+    "react-social-icons": "^4.1.0"
   }
 }

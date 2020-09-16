@@ -3,7 +3,7 @@ import { Route, Redirect, Switch, Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import IteratePostings from "./IteratePostings";
 import Selection from "../selection/Selection";
-
+import { SocialIcon } from "react-social-icons";
 import Footer from "../common/footer";
 class Postings extends Component {
   state = {
@@ -30,12 +30,24 @@ class Postings extends Component {
     return (
       <React.Fragment>
         <Grid container>
+          {/* <Grid item xs={12} container>
+            <Grid item xs={12}>
+              <SocialIcon url="https://www.facebook.com/rooftailcanada" />
+              <SocialIcon url="https://instagram.com/rooftail_canada?igshid=ncjvwlnab2zv" />
+            </Grid>
+          </Grid> */}
           <Grid item xs={12}>
-            <Link to="/create">
-              <span style={{ float: "right" }} className="badge badge-success">
-                Create Posting
-              </span>
-            </Link>
+            <Grid item xs={11}>
+              <Link to="/create">
+                <span
+                  style={{ float: "right" }}
+                  className="badge badge-success"
+                >
+                  Create Posting
+                </span>
+              </Link>
+            </Grid>
+            <Grid item xs={1} />
           </Grid>
           <Grid item xs={12}>
             <Selection
@@ -66,7 +78,6 @@ class Postings extends Component {
               <Redirect to="/not-found"></Redirect>
             </Switch>
           </Grid>
-          <Grid item xs={12} container></Grid>
         </Grid>
         <Footer />
       </React.Fragment>

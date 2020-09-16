@@ -13,6 +13,7 @@ import MyPostings from "./components/MyPostings.jsx/MyPostings";
 import PreviewPosting from "./components/MyPostings.jsx/PreviewPosting";
 import EditPostingForm from "./components/MyPostings.jsx/EditPostingForm";
 import ProtectedRoute from "./components/common/ProtectedRoute";
+import Contactus from "./components/common/Contactus";
 const RegisterForm = lazy(() => import("./components/Form/RegisterForm"));
 const LoginForm = lazy(() => import("./components/Form/LoginForm"));
 const Forgot = lazy(() => import("./components/Form/Forgot"));
@@ -149,6 +150,10 @@ class App extends Component {
                   <ProtectedRoute
                     path="/edit_posting_details/:id"
                     render={(props) => <EditPostingForm {...props} />}
+                  />
+                  <ProtectedRoute
+                    path="/contactus"
+                    render={(props) => <Contactus {...props} />}
                   />
                   <Redirect from="/" exact to="/home" />
                   <Redirect to="/not-found"></Redirect>
