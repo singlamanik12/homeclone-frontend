@@ -1,0 +1,19 @@
+.drop-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  background-color: #d3d3d3;
+}
+.upload-icon {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+.drop-message {
+  text-align: center;
+  color: grey;
+  font-family: Arial;
+  font-size: 20px;
+}

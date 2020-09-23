@@ -1,13 +1,7 @@
 import React from "react";
+import DragDrop from "../common/DragDrop";
 const UploadMessage = () => {
-  return (
-    <img
-      alt="12"
-      src="https://www.kindpng.com/picc/m/400-4009551_shin-chan-shin-chan-cute-hd-png-download.png"
-      height="500px"
-      width="500px"
-    />
-  );
+  return <DragDrop />;
 };
 
 export default UploadMessage;
