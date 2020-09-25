@@ -24,12 +24,12 @@ class SharePosting extends Component {
     return (
       <Grid item xs={12}>
         <Typography variant="body2" style={{ fontFamily: "Noto Sans JP" }}>
-          Share this place on:
+          Share this place with your friends on:
         </Typography>
         <br />
         <WhatsappShareButton
           url={url}
-          title="Rooftail is a Pvt. Ltd."
+          title="Rooftail - Place to find rooms, apartments , basements"
           separator=""
         >
           {" "}
@@ -37,7 +37,7 @@ class SharePosting extends Component {
         </WhatsappShareButton>
         <FacebookShareButton
           url={url}
-          title="Rooftail is a Pvt. Ltd."
+          title="Rooftail - Place to find rooms, apartments , basements"
           separator=""
         >
           {" "}

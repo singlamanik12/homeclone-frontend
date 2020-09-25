@@ -13,6 +13,7 @@ import CustomDivider from "./OpenPostingElements/CustomDivider";
 import http from "../../services/httpServices";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { url } from "../../tools/config.json";
+import SharePosting from "./OpenPostingElements/SharePosting";
 class SmallScreenPosting extends Component {
   state = { data: {}, images: [], load: false, lata: {} };
   componentDidMount = async () => {
@@ -51,6 +52,12 @@ class SmallScreenPosting extends Component {
             </Grid>
             <Grid item xs={12} container>
               <PostedBy owner={this.state.load.data.owner} />
+            </Grid>
+            <Grid item xs={12} container>
+              <CustomDivider />
+            </Grid>
+            <Grid item xs={12} container>
+              <SharePosting />
             </Grid>
             <Grid item xs={12} container>
               <CustomDivider />
