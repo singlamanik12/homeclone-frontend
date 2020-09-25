@@ -1,1 +1,11 @@
-[{ "city": "Toronto" }, { "city": "Brampton" }, { "city": "Scarborough" }]
+[
+  { "city": "Toronto" },
+  { "city": "Ottawa" },
+  { "city": "Mississauga" },
+  { "city": "Brampton" },
+  { "city": "Hamilton" },
+  { "city": "London" },
+  { "city": "Markham" },
+  { "city": "Vaughan" },
+  { "city": "Windsor" }
+]
