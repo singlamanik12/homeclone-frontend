@@ -36,7 +36,7 @@ class Selection extends Component {
             <Grid item xs={5} md={4}>
               <FormControl variant="outlined" style={{ minWidth: "100%" }}>
                 <InputLabel id="demo-simple-select-outlined-label">
-                  City
+                  Area
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-outlined-label"
