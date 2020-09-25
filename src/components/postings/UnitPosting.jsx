@@ -15,10 +15,10 @@ class UnitPosting extends Component {
     date: "",
   };
   componentDidMount = () => {
-    console.log(this.props.data);
+    // console.log(this.props.data);
   };
   postingpage = () => {
-    console.log("Manik");
+    // console.log("Manik");
   };
 
   render() {

@@ -100,7 +100,7 @@ export default function SwipeableTemporaryDrawer() {
       </div>
     );
   } catch (ex) {
-    console.log("Error Ocurred!");
+    // console.log("Error Ocurred!");
     window.location = "/";
   }
 }

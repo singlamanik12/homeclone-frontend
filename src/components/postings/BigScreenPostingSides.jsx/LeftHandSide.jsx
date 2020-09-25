@@ -9,7 +9,7 @@ class LeftHandSide extends Component {
   state = {};
   render() {
     const { data, owner } = this.props;
-    console.log(data);
+    // console.log(data);
     return (
       <Grid item xs={8} container direction="column">
         <Grid item xs={12} container>

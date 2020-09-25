@@ -20,7 +20,7 @@ class BigScreenPosting extends Component {
     // this.setState({ data });
   };
   render() {
-    console.log(this.state.load);
+    // console.log(this.state.load);
     const { data } = this.state;
     const { id } = this.props;
     return this.state.load ? (

@@ -18,7 +18,7 @@ class OpenPosting extends Component {
   };
 
   render() {
-    console.log(window.matchMedia("(max-width: 600px)"));
+    // console.log(window.matchMedia("(max-width: 600px)"));
     return this.state.isMobile ? (
       <SmallScreenPosting id={this.props.match.params.id} />
     ) : (

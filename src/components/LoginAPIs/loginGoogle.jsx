@@ -9,18 +9,18 @@ const GoLogin = ({ track }) => {
     try {
       const data = { username: "", email: "" };
       data.username = response.profileObj.name;
-      console.log(response);
+      // console.log(response);
       data.email = response.profileObj.email;
       // console.log(response);
 
       // console.log(await registerService.register(data));
       const { data: jwt } = await registerService.register(data);
-      console.log(jwt);
+      // console.log(jwt);
       localStorage.setItem("token", jwt);
       localStorage.setItem("source", response.profileObj.imageUrl);
       window.location = track ? track.from.pathname : "/";
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

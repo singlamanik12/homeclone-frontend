@@ -9,15 +9,15 @@ class IteratePostings extends Component {
   state = { data: {}, loaded: false, error: "" };
   componentDidMount = async () => {
     try {
-      console.log(this.state.data);
+      // console.log(this.state.data);
 
       const { data } = await http.get(
         `${url}/postings?city=${this.props.city}&region=${this.props.region}&page=${this.props.page}&typeOfHousing=${this.props.typeOfHousing}`
       );
-      console.log(data);
+      // console.log(data);
       this.setState({ data, loaded: true });
     } catch (ex) {
-      console.log(ex.response.data);
+      // console.log(ex.response.data);
       this.setState({ error: "No postings available yet" });
     }
   };

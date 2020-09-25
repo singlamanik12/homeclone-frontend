@@ -20,7 +20,7 @@ class PreviewPosting extends Component {
   };
 
   render() {
-    console.log(window.matchMedia("(max-width: 600px)"));
+    // console.log(window.matchMedia("(max-width: 600px)"));
     return (
       <>
         <Grid item xs={12} contianer>

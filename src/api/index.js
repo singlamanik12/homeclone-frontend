@@ -6,6 +6,6 @@ export const fetchCities = async () => {
     //console.log(data);
     return data.map((item) => item.city);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };

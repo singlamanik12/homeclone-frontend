@@ -103,38 +103,37 @@ class EditPostingForm extends Component {
   };
   handleSubmitPosting = async () => {
     const { email } = getCurrentUserEmail();
-    console.log(this.state.images);
+    // console.log(this.state.images);
     try {
-      await http
-        .post(`${url}/newposting`, {
-          id: this.props.match.params.id,
-          email: email,
-          typeOfHousing: this.state.typeOfHousing,
-          totalPersonRequired: this.state.totalPersonRequired,
-          city: this.state.city,
-          state: this.state.state,
-          totalBeds: this.state.totalBeds,
-          typeOfBathroom: this.state.typeOfBathroom,
-          streetAddress: this.state.streetAddress,
-          wifi: this.state.wifi,
-          electricity: this.state.electricity,
-          laundary: this.state.laundary,
-          water: this.state.water,
-          parking: this.state.parking,
-          microwave: this.state.microwave,
-          refrigerator: this.state.refrigerator,
-          ownerLiving: this.state.ownerLiving,
-          description: this.state.description,
-          phoneNumber: this.state.phoneNumber,
-          price: this.state.price,
-          region: this.state.region,
-          images: this.state.images,
-          title: this.state.title,
-        })
-        .then((response) => console.log(response));
+      await http.post(`${url}/newposting`, {
+        id: this.props.match.params.id,
+        email: email,
+        typeOfHousing: this.state.typeOfHousing,
+        totalPersonRequired: this.state.totalPersonRequired,
+        city: this.state.city,
+        state: this.state.state,
+        totalBeds: this.state.totalBeds,
+        typeOfBathroom: this.state.typeOfBathroom,
+        streetAddress: this.state.streetAddress,
+        wifi: this.state.wifi,
+        electricity: this.state.electricity,
+        laundary: this.state.laundary,
+        water: this.state.water,
+        parking: this.state.parking,
+        microwave: this.state.microwave,
+        refrigerator: this.state.refrigerator,
+        ownerLiving: this.state.ownerLiving,
+        description: this.state.description,
+        phoneNumber: this.state.phoneNumber,
+        price: this.state.price,
+        region: this.state.region,
+        images: this.state.images,
+        title: this.state.title,
+      });
+
       window.location = "/my_postings";
     } catch (ex) {
-      console.log(ex);
+      // console.log(ex);
     }
   };
   startLoading = () => {
@@ -146,7 +145,7 @@ class EditPostingForm extends Component {
 
     if (selectedFiles) {
       this.startLoading();
-      console.log(this.state.load);
+      // console.log(this.state.load);
       for (let i = 0; i < selectedFiles.length; i++) {
         datas.append("file", selectedFiles[i], selectedFiles[i].name);
       }

@@ -12,7 +12,7 @@ class Contactus extends Component {
       await services.contact(this.state.subject, this.state.body);
       window.location = "/";
     } catch (ex) {
-      console.log(ex);
+      // console.log(ex);
     }
   };
   render() {
