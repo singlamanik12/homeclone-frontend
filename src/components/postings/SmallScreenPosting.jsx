@@ -57,7 +57,7 @@ class SmallScreenPosting extends Component {
               <CustomDivider />
             </Grid>
             <Grid item xs={12} container>
-              <SharePosting />
+              <SharePosting data={data} />
             </Grid>
             <Grid item xs={12} container>
               <CustomDivider />
