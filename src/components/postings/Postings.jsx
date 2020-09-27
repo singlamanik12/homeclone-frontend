@@ -14,7 +14,8 @@ class Postings extends Component {
   };
   handleChange = (e) => {
     // console.log(e.target.value);
-    this.setState({ [e.target.name]: e.target.value, page: 0 });
+    this.state[e.target.name] !== e.target.value &&
+      this.setState({ [e.target.name]: e.target.value, page: 0 });
   };
   handleNextPage = () => {
     let page = this.state.page;
@@ -27,6 +28,7 @@ class Postings extends Component {
     this.setState({ page });
   };
   render() {
+    console.log(this.props.name);
     return (
       <React.Fragment>
         <Grid container>
