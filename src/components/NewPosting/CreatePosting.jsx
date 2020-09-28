@@ -7,6 +7,7 @@ import ImageUpload from "./ImageUpload";
 import http from "../../services/httpServices";
 import { getCurrentUserEmail } from "./../../services/JwtServices";
 import { url } from "../../tools/config.json";
+import Resizer from "react-image-file-resizer";
 class CreatePosting extends Component {
   state = {
     step: 1,
@@ -103,7 +104,22 @@ class CreatePosting extends Component {
   startLoading = () => {
     this.setState({ load: true });
   };
-  multipleFileChangedHandler = (event) => {
+  resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        680,
+        680,
+        "PNG",
+        100,
+        0,
+        (uri) => {
+          resolve(uri);
+        },
+        "blob"
+      );
+    });
+  multipleFileChangedHandler = async (event) => {
     const datas = new FormData();
     let selectedFiles = event.target.files;
 
@@ -111,7 +127,9 @@ class CreatePosting extends Component {
       this.startLoading();
       // console.log(this.state.load);
       for (let i = 0; i < selectedFiles.length; i++) {
-        datas.append("file", selectedFiles[i], selectedFiles[i].name);
+        let file = selectedFiles[i];
+        let image = await this.resizeFile(file);
+        datas.append("file", image, selectedFiles[i].name);
       }
     }
     http
