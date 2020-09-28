@@ -12,7 +12,6 @@ import Contactus from "./components/common/Contactus";
 const RegisterForm = lazy(() => import("./components/Form/RegisterForm"));
 const LoginForm = lazy(() => import("./components/Form/LoginForm"));
 const Forgot = lazy(() => import("./components/Form/Forgot"));
-const Postings = lazy(() => import("./components/postings/Postings"));
 const Logout = lazy(() => import("./components/common/Logout"));
 const ChangePassword = lazy(() => import("./components/Form/ChangePassword"));
 const Confirmation = lazy(() => import("./components/common/Confirmation"));
@@ -23,9 +22,33 @@ const CreatePosting = lazy(() =>
 const OpenPosting = lazy(() => import("./components/postings/OpenPosting"));
 const Privacy = lazy(() => import("./components/common/privacypolicy"));
 const Terms = lazy(() => import("./components/common/Terms"));
+const IteratePostings = lazy(() =>
+  import("./components/postings/IteratePostings")
+);
 class Router extends Component {
-  state = {};
+  state = {
+    city: "All",
+    region: "All",
+    page: 0,
+    typeOfHousing: "All",
+  };
+  handleChange = (e) => {
+    // console.log(e.target.value);
+    this.state[e.target.name] !== e.target.value &&
+      this.setState({ [e.target.name]: e.target.value, page: 0 });
+  };
+  handleNextPage = () => {
+    let page = this.state.page;
+    page += 1;
+    this.setState({ page });
+  };
+  handlePrevPage = () => {
+    let page = this.state.page;
+    page -= 1;
+    this.setState({ page });
+  };
   render() {
+    const { city, region, page, typeOfHousing } = this.state;
     return (
       <>
         <Grid item xs={12}>
@@ -48,7 +71,21 @@ class Router extends Component {
                 path="/register"
                 render={(props) => <RegisterForm {...props} />}
               />
-              <Route path="/home" render={(props) => <Postings {...props} />} />
+              <Route
+                path="/home"
+                render={(props) => (
+                  <IteratePostings
+                    city={city}
+                    region={region}
+                    page={page}
+                    typeOfHousing={typeOfHousing}
+                    handleChange={this.handleChange}
+                    handleNextPage={this.handleNextPage}
+                    handlePrevPage={this.handlePrevPage}
+                    {...props}
+                  />
+                )}
+              />
               <Route
                 path="/login"
                 render={(props) => <LoginForm {...props} />}
