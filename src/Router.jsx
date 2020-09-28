@@ -1,13 +1,8 @@
 import React, { Component, lazy, Suspense } from "react";
 import "./App.css";
-import jwtDecode from "jwt-decode";
 import { Route, Redirect, Switch, NavLink, Link } from "react-router-dom";
 import "./components/SideBar/SideBar.Module.css";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import { Typography } from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
-import SideBar from "./components/SideBar/SideBar";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import MyPostings from "./components/MyPostings.jsx/MyPostings";
 import PreviewPosting from "./components/MyPostings.jsx/PreviewPosting";
