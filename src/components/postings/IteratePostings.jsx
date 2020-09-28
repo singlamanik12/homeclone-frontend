@@ -9,7 +9,7 @@ import Selection from "./../selection/Selection";
 import Footer from "./../common/footer";
 import { Link } from "react-router-dom";
 class IteratePostings extends Component {
-  state = { data: {}, loaded: false, error: "" };
+  state = { data: {}, loaded: false };
   componentDidMount = async () => {
     try {
       // console.log(this.state.data);
@@ -21,21 +21,29 @@ class IteratePostings extends Component {
       this.setState({ data, loaded: true });
     } catch (ex) {
       // console.log(ex.response.data);
-      this.setState({ error: "No postings available yet" });
+
+      this.props.setError();
     }
   };
-  componentDidUpdate = async () => {
-    try {
-      // console.log(this.state.data);
+  componentDidUpdate = async (prevProps) => {
+    if (
+      this.props.city !== prevProps.city ||
+      this.props.region !== prevProps.region ||
+      this.props.page !== prevProps.page ||
+      this.props.typeOfHousing !== prevProps.typeOfHousing
+    ) {
+      try {
+        // console.log(this.state.data);
 
-      const { data } = await http.get(
-        `${url}/postings?city=${this.props.city}&region=${this.props.region}&page=${this.props.page}&typeOfHousing=${this.props.typeOfHousing}`
-      );
-      // console.log(data);
-      this.setState({ data, loaded: true });
-    } catch (ex) {
-      // console.log(ex.response.data);
-      this.setState({ error: "No postings available yet" });
+        const { data } = await http.get(
+          `${url}/postings?city=${this.props.city}&region=${this.props.region}&page=${this.props.page}&typeOfHousing=${this.props.typeOfHousing}`
+        );
+        // console.log(data);
+        this.setState({ data, loaded: true });
+      } catch (ex) {
+        // console.log(ex.response.data);
+        this.props.setError();
+      }
     }
   };
   render() {
@@ -79,7 +87,7 @@ class IteratePostings extends Component {
             />
           </Grid>
           <Grid item xs={12} container>
-            {this.state.error === "" ? (
+            {this.props.error === "" ? (
               <>
                 <Grid container>
                   <Grid item md={1}></Grid>
@@ -132,7 +140,7 @@ class IteratePostings extends Component {
                     variant="body2"
                     style={{ fontFamily: "Noto Sans JP" }}
                   >
-                    {this.state.error}
+                    {this.props.error}
                   </Typography>
                 </div>
               </Grid>

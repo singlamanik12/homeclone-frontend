@@ -31,24 +31,28 @@ class Router extends Component {
     region: "All",
     page: 0,
     typeOfHousing: "All",
+    error: "",
+  };
+  setError = () => {
+    this.setState({ error: "No postings available yet" });
   };
   handleChange = (e) => {
     // console.log(e.target.value);
     this.state[e.target.name] !== e.target.value &&
-      this.setState({ [e.target.name]: e.target.value, page: 0 });
+      this.setState({ [e.target.name]: e.target.value, page: 0, error: "" });
   };
   handleNextPage = () => {
     let page = this.state.page;
     page += 1;
-    this.setState({ page });
+    this.setState({ page, error: "" });
   };
   handlePrevPage = () => {
     let page = this.state.page;
     page -= 1;
-    this.setState({ page });
+    this.setState({ page, error: "" });
   };
   render() {
-    const { city, region, page, typeOfHousing } = this.state;
+    const { city, region, page, typeOfHousing, error } = this.state;
     return (
       <>
         <Grid item xs={12}>
@@ -78,7 +82,9 @@ class Router extends Component {
                     city={city}
                     region={region}
                     page={page}
+                    error={error}
                     typeOfHousing={typeOfHousing}
+                    setError={this.setError}
                     handleChange={this.handleChange}
                     handleNextPage={this.handleNextPage}
                     handlePrevPage={this.handlePrevPage}
