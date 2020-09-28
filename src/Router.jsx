@@ -9,6 +9,8 @@ import PreviewPosting from "./components/MyPostings.jsx/PreviewPosting";
 import EditPostingForm from "./components/MyPostings.jsx/EditPostingForm";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import Contactus from "./components/common/Contactus";
+import http from "./services/httpServices";
+import { url } from "./tools/config.json";
 const RegisterForm = lazy(() => import("./components/Form/RegisterForm"));
 const LoginForm = lazy(() => import("./components/Form/LoginForm"));
 const Forgot = lazy(() => import("./components/Form/Forgot"));
@@ -32,10 +34,46 @@ class Router extends Component {
     page: 0,
     typeOfHousing: "All",
     error: "",
+    data: {},
+    loaded: false,
   };
-  setError = () => {
-    this.setState({ error: "No postings available yet" });
+  componentDidMount = async () => {
+    try {
+      // console.log(this.state.data);
+
+      const { data } = await http.get(
+        `${url}/postings?city=${this.state.city}&region=${this.state.region}&page=${this.state.page}&typeOfHousing=${this.state.typeOfHousing}`
+      );
+      // console.log(data);
+      this.setState({ data, loaded: true });
+    } catch (ex) {
+      // console.log(ex.response.data);
+
+      this.setState({ error: "No postings available yet" });
+    }
   };
+  componentDidUpdate = async (prevProps, prevState) => {
+    if (
+      this.state.city !== prevState.city ||
+      this.state.region !== prevState.region ||
+      this.state.page !== prevState.page ||
+      this.state.typeOfHousing !== prevState.typeOfHousing
+    ) {
+      try {
+        // console.log(this.state.data);
+
+        const { data } = await http.get(
+          `${url}/postings?city=${this.state.city}&region=${this.state.region}&page=${this.state.page}&typeOfHousing=${this.state.typeOfHousing}`
+        );
+        // console.log(data);
+        this.setState({ data, loaded: true });
+      } catch (ex) {
+        // console.log(ex.response.data);
+        this.setState({ error: "No postings available yet" });
+      }
+    }
+  };
+
   handleChange = (e) => {
     // console.log(e.target.value);
     this.state[e.target.name] !== e.target.value &&
@@ -52,7 +90,15 @@ class Router extends Component {
     this.setState({ page, error: "" });
   };
   render() {
-    const { city, region, page, typeOfHousing, error } = this.state;
+    const {
+      city,
+      region,
+      page,
+      typeOfHousing,
+      error,
+      data,
+      loaded,
+    } = this.state;
     return (
       <>
         <Grid item xs={12}>
@@ -84,7 +130,8 @@ class Router extends Component {
                     page={page}
                     error={error}
                     typeOfHousing={typeOfHousing}
-                    setError={this.setError}
+                    data={data}
+                    loaded={loaded}
                     handleChange={this.handleChange}
                     handleNextPage={this.handleNextPage}
                     handlePrevPage={this.handlePrevPage}

@@ -2,50 +2,11 @@ import React, { Component } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import UnitPosting from "./UnitPosting";
-import http from "../../services/httpServices";
-import { url } from "../../tools/config.json";
 import Navigation from "./Navigation";
 import Selection from "./../selection/Selection";
 import Footer from "./../common/footer";
 import { Link } from "react-router-dom";
 class IteratePostings extends Component {
-  state = { data: {}, loaded: false };
-  componentDidMount = async () => {
-    try {
-      // console.log(this.state.data);
-
-      const { data } = await http.get(
-        `${url}/postings?city=${this.props.city}&region=${this.props.region}&page=${this.props.page}&typeOfHousing=${this.props.typeOfHousing}`
-      );
-      // console.log(data);
-      this.setState({ data, loaded: true });
-    } catch (ex) {
-      // console.log(ex.response.data);
-
-      this.props.setError();
-    }
-  };
-  componentDidUpdate = async (prevProps) => {
-    if (
-      this.props.city !== prevProps.city ||
-      this.props.region !== prevProps.region ||
-      this.props.page !== prevProps.page ||
-      this.props.typeOfHousing !== prevProps.typeOfHousing
-    ) {
-      try {
-        // console.log(this.state.data);
-
-        const { data } = await http.get(
-          `${url}/postings?city=${this.props.city}&region=${this.props.region}&page=${this.props.page}&typeOfHousing=${this.props.typeOfHousing}`
-        );
-        // console.log(data);
-        this.setState({ data, loaded: true });
-      } catch (ex) {
-        // console.log(ex.response.data);
-        this.props.setError();
-      }
-    }
-  };
   render() {
     const {
       city,
@@ -55,6 +16,9 @@ class IteratePostings extends Component {
       handleChange,
       handlePrevPage,
       handleNextPage,
+      data,
+      loaded,
+      error,
     } = this.props;
     return (
       <React.Fragment>
@@ -87,13 +51,13 @@ class IteratePostings extends Component {
             />
           </Grid>
           <Grid item xs={12} container>
-            {this.props.error === "" ? (
+            {error === "" ? (
               <>
                 <Grid container>
                   <Grid item md={1}></Grid>
                   <Grid item xs={12} md={8} container>
-                    {this.state.loaded ? (
-                      this.state.data.postings.map((item) => (
+                    {loaded ? (
+                      data.postings.map((item) => (
                         <Grid item xs={12} md={6} style={{ padding: "10px" }}>
                           <UnitPosting data={item} />
                         </Grid>
@@ -115,12 +79,12 @@ class IteratePostings extends Component {
                 </Grid>
                 <Grid item xs={12} container>
                   <Grid item xs={12}>
-                    {this.state.loaded && (
+                    {loaded && (
                       <Navigation
-                        handleNextPage={this.props.handleNextPage}
-                        handlePrevPage={this.props.handlePrevPage}
-                        page={this.props.page}
-                        hasNextPage={this.state.data.hasnextpage}
+                        handleNextPage={handleNextPage}
+                        handlePrevPage={handlePrevPage}
+                        page={page}
+                        hasNextPage={data.hasnextpage}
                       />
                     )}
                   </Grid>
@@ -140,7 +104,7 @@ class IteratePostings extends Component {
                     variant="body2"
                     style={{ fontFamily: "Noto Sans JP" }}
                   >
-                    {this.props.error}
+                    {error}
                   </Typography>
                 </div>
               </Grid>
