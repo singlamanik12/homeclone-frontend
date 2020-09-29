@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import CopyrightIcon from "@material-ui/icons/Copyright";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+
 const Footer = () => (
   <div className="footer">
     <small style={{ color: "white" }}>

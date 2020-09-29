@@ -4,9 +4,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Grid from "@material-ui/core/Grid";
-import Fab from "@material-ui/core/Fab";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import Divider from "@material-ui/core/Divider";
 import TextField from "@material-ui/core/TextField";
 import { Typography } from "@material-ui/core";
 class PostingOutline extends Component {

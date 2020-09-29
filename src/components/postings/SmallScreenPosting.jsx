@@ -33,7 +33,7 @@ class SmallScreenPosting extends Component {
         <Carousel showThumbs={false} showArrows={false} transitionTime={200}>
           {data.images.map((image) => (
             <div>
-              <img src={image} alt="Retry to load image" />
+              <img src={image} alt="Retry to load" />
             </div>
           ))}
         </Carousel>

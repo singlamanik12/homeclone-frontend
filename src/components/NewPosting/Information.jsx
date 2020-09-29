@@ -3,9 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import RenderOptions from "../selection/Cities";
 import States from "../selection/States";
-import Fab from "@material-ui/core/Fab";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 import {
   FormControl,

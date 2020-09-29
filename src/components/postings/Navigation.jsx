@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Avatar, Button } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 class Navigation extends Component {

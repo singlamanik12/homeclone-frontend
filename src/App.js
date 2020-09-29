@@ -1,7 +1,7 @@
-import React, { Component, lazy, Suspense } from "react";
+import React, { Component } from "react";
 import "./App.css";
 import jwtDecode from "jwt-decode";
-import { Route, Redirect, Switch, NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./components/SideBar/SideBar.Module.css";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";

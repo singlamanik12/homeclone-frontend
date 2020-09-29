@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { getCurrentUserEmail } from "./../../services/JwtServices";
 import { Grid, Typography } from "@material-ui/core";
 import https from "../../services/httpServices";
-import UnitPosting from "./../postings/UnitPosting";
 import EditPosting from "./EditPosting";
 import { url } from "../../tools/config.json";
 class MyPostings extends Component {

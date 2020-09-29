@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import IconButton from "@material-ui/core/IconButton";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Typography from "@material-ui/core/Typography";
-import ShareIcon from "@material-ui/icons/Share";
 import { Link as RouterLink } from "react-router-dom";
 class UnitPosting extends Component {
   state = {
@@ -23,7 +19,7 @@ class UnitPosting extends Component {
 
   render() {
     const { data } = this.props;
-    let date = new Date(data.createdAt);
+    // let date = new Date(data.createdAt);
     return (
       <Card style={{ maxWidth: "100%" }}>
         <CardActionArea

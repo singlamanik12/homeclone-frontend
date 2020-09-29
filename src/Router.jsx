@@ -1,6 +1,6 @@
 import React, { Component, lazy, Suspense } from "react";
 import "./App.css";
-import { Route, Redirect, Switch, NavLink, Link } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import "./components/SideBar/SideBar.Module.css";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";

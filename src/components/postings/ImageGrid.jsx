@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { ReactPhotoCollage } from "react-photo-collage";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import http from "../../services/httpServices";
 import BlankPage from "./../common/BlankPage";
 class ImageGrid extends Component {
   state = { images: [], photos: [] };

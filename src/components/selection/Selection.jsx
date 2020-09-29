@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-import RenderOptions from "./Cities";
 import Grid from "@material-ui/core/Grid";
 import data from "../../tools/cities.json";
 import {
@@ -10,10 +8,6 @@ import {
   Select,
   NativeSelect,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import filter from "./filter.png";
-import Filter from "./filter";
-import SelectType from "./SelectType";
 class Selection extends Component {
   state = { data: null, citiesList: [], loaded: false };
 

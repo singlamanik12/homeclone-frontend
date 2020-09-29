@@ -34,7 +34,6 @@ class CreatePosting extends Component {
     title: "",
     verified: true,
     images: [],
-    open: false,
     load: false,
   };
   handleClickOpen = () => {
@@ -94,6 +93,7 @@ class CreatePosting extends Component {
         region: this.state.region,
         images: this.state.images,
         title: this.state.title,
+        date: Date.now(),
       });
 
       window.location = "/my_postings";
@@ -153,7 +153,7 @@ class CreatePosting extends Component {
   };
 
   render() {
-    const { step, open } = this.state;
+    const { step } = this.state;
     const {
       typeOfHousing,
       totalPersonRequired,

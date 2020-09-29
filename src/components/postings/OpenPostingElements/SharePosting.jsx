@@ -1,19 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Typography } from "@material-ui/core";
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  FacebookMessengerShareButton,
-  TelegramShareButton,
-  WhatsappShareButton,
-} from "react-share";
-import {
-  EmailIcon,
-  FacebookIcon,
-  FacebookMessengerIcon,
-  TelegramIcon,
-  WhatsappIcon,
-} from "react-share";
+import { FacebookShareButton, WhatsappShareButton } from "react-share";
+import { FacebookIcon, WhatsappIcon } from "react-share";
 class SharePosting extends Component {
   state = {};
 

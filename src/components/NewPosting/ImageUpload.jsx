@@ -1,8 +1,6 @@
 import React, { Component, lazy, Suspense } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
-import Fab from "@material-ui/core/Fab";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Grid from "@material-ui/core/Grid";
 
 import UploadMessage from "./UploadMessage";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
-import { Typography, Avatar } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 class PostedBy extends Component {
   state = {};
   render() {
