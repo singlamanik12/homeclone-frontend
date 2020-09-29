@@ -14,6 +14,7 @@ import http from "../../services/httpServices";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { url } from "../../tools/config.json";
 import SharePosting from "./OpenPostingElements/SharePosting";
+import MobileCarousel from "./MobileCarousel";
 class SmallScreenPosting extends Component {
   state = { data: {}, images: [], load: false, lata: {} };
   componentDidMount = async () => {
@@ -30,20 +31,21 @@ class SmallScreenPosting extends Component {
     const { data } = this.state;
     return this.state.load ? (
       <React.Fragment>
-        <Carousel showThumbs={false} showArrows={false} transitionTime={200}>
+        {/* <Carousel showThumbs={false} showArrows={false} transitionTime={200}>
           {data.images.map((image) => (
             <div>
               <img src={image} alt="Retry to load" />
             </div>
           ))}
-        </Carousel>
+        </Carousel> */}
+        <MobileCarousel images={data.images} />
         <Grid container>
           <Grid item xs={1} container></Grid>
           <Grid
             item
             xs={11}
             container
-            direction="column"
+            // direction="column"
             spacing={3}
             style={{ marginBottom: "100px" }}
           >
