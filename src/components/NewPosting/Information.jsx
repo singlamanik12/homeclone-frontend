@@ -67,7 +67,7 @@ class Information extends Component {
                 </Typography>
                 <RenderOptions
                   handleChange={handleChange}
-                  values={values.city}
+                  value={values.city}
                 />
               </Grid>
               <Grid item xs={1} />

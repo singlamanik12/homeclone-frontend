@@ -109,7 +109,7 @@ class CreatePosting extends Component {
       Resizer.imageFileResizer(
         file,
         680,
-        680,
+        320,
         "PNG",
         100,
         0,

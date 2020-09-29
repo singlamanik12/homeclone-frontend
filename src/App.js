@@ -12,6 +12,8 @@ import Router from "./Router";
 class App extends Component {
   state = {};
   componentDidMount() {
+    // console.log(Date().toLocaleString());
+    console.log(Date.now());
     try {
       const jwt = localStorage.getItem("token");
       const user = jwtDecode(jwt);
