@@ -8,6 +8,7 @@ class MobileCarousel extends Component {
         id="carouselExampleIndicators"
         className="carousel slide"
         data-ride="carousel"
+        data-interval="1000"
       >
         <ol className="carousel-indicators">
           <li

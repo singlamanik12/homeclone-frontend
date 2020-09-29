@@ -10,7 +10,7 @@ class MainInformation extends Component {
   render() {
     const { data } = this.props;
     return (
-      <Grid item xs={12} container direction="column">
+      <Grid item xs={12} container>
         <Grid item xs={12} container>
           <Avatar>
             <HomeIcon style={{ color: "black" }} />
