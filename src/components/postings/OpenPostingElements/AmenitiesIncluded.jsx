@@ -26,7 +26,7 @@ class AmenitiesIncluded extends Component {
             </Typography>
           </Grid>
         )}
-        {data.electricty && (
+        {data.electricity && (
           <Grid item xs={12}>
             <Typography
               variant="subtitle1"
