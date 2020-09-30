@@ -22,7 +22,7 @@ class IteratePostings extends Component {
     } = this.props;
     return (
       <React.Fragment>
-        <Grid container>
+        <Grid container style={{ marginTop: "20px" }}>
           {/* <Grid item xs={12} container>
             <Grid item xs={12}>
               <SocialIcon url="https://www.facebook.com/rooftailcanada" />

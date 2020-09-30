@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { Typography, Grid } from "@material-ui/core";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 import TitleHeading from "./OpenPostingElements/TitleHeading";
 import PostedBy from "./OpenPostingElements/PostedBy";
 import MainInformation from "./OpenPostingElements/MainInformation";
@@ -18,12 +16,15 @@ import MobileCarousel from "./MobileCarousel";
 class SmallScreenPosting extends Component {
   state = { data: {}, images: [], load: false, lata: {} };
   componentDidMount = async () => {
-    await http
-      .get(`${url}/posting?id=${this.props.id}`)
-      .then((response) =>
-        this.setState({ load: response, data: response.data.posting })
-      );
-
+    try {
+      await http
+        .get(`${url}/posting?id=${this.props.id}`)
+        .then((response) =>
+          this.setState({ load: response, data: response.data.posting })
+        );
+    } catch (ex) {
+      window.location = "/";
+    }
     // console.log(data);
     // this.setState({ data });
   };

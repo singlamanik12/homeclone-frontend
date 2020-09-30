@@ -92,7 +92,7 @@ class LoggedIn extends Component {
             />
           </ListItem>
           <Divider variant="middle" />
-          <ListItem button key="2" component={RouterLink} to="/contactus">
+          <ListItem button key="3" component={RouterLink} to="/contactus">
             <ListItemText
               primary={
                 <Typography

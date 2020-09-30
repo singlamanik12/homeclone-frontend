@@ -8,7 +8,8 @@ class MobileCarousel extends Component {
         id="carouselExampleIndicators"
         className="carousel slide"
         data-ride="carousel"
-        data-interval="1000"
+        data-interval="3000"
+        data-touch="true"
       >
         <ol className="carousel-indicators">
           <li
@@ -25,8 +26,6 @@ class MobileCarousel extends Component {
                 ></li>
               )
           )}
-          {/* <li data-target="#carouselExampleIndicators" data-slide-to="1"></li> */}
-          {/* <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> */}
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">

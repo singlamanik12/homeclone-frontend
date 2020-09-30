@@ -10,11 +10,15 @@ import { url } from "../../tools/config.json";
 class BigScreenPosting extends Component {
   state = { data: {}, images: [], load: false };
   componentDidMount = async () => {
-    await http
-      .get(`${url}/posting?id=${this.props.id}`)
-      .then((response) =>
-        this.setState({ load: response, data: response.data.posting })
-      );
+    try {
+      await http
+        .get(`${url}/posting?id=${this.props.id}`)
+        .then((response) =>
+          this.setState({ load: response, data: response.data.posting })
+        );
+    } catch (ex) {
+      window.location = "/";
+    }
 
     // console.log(data);
     // this.setState({ data });
