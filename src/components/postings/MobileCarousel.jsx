@@ -14,7 +14,7 @@ class MobileCarousel extends Component {
               src={image}
               alt="Second slide"
               style={{
-                height: "250px",
+                height: "350px",
                 width: "100%",
                 objectFit: "contain",
               }}
