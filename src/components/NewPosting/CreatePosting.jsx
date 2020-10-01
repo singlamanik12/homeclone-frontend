@@ -116,7 +116,9 @@ class CreatePosting extends Component {
         (uri) => {
           resolve(uri);
         },
-        "blob"
+        "blob",
+        10,
+        400
       );
     });
   multipleFileChangedHandler = async (event) => {
