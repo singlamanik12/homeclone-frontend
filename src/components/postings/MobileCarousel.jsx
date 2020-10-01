@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { Typography } from "@material-ui/core";
+import $ from "jquery";
 class MobileCarousel extends Component {
   state = {};
+  componentDidMount() {}
   render() {
     const { images } = this.props;
     return (
@@ -81,6 +84,14 @@ class MobileCarousel extends Component {
             className="carousel-control-prev-icon"
             aria-hidden="true"
           ></span>
+          {/* <span style={{ color: "black" }}>
+            <Typography
+              variant="caption"
+              style={{ fontFamily: "Noto Sans JP" }}
+            >
+              Previous
+            </Typography>
+          </span> */}
           <span className="sr-only">Previous</span>
         </a>
         <a
