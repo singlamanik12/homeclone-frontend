@@ -42,7 +42,7 @@ class RegisterForm extends Form {
           align="center"
           style={{ fontFamily: "Pacifico" }}
         >
-          Become a RoofTailer
+          Signup
         </Typography>
         <div style={{ marginBlockStart: "60px" }}>
           <Grid container>
