@@ -165,7 +165,7 @@ class Router extends Component {
                 render={(props) => <CreatePosting {...props} />}
               />
               <Route
-                path="/posting_details/:id"
+                path="/housing_details/:id"
                 render={(props) => <OpenPosting {...props} />}
               />
               <Route

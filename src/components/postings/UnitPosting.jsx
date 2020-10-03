@@ -25,7 +25,7 @@ class UnitPosting extends Component {
         <CardActionArea
           style={{ textDecoration: "none" }}
           component={RouterLink}
-          to={`/posting_details/${data._id}`}
+          to={`/housing_details/${data._id}`}
         >
           {/* <CardHeader
             //   avatar={
