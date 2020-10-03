@@ -4,7 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import UnitPosting from "./UnitPosting";
 import Navigation from "./Navigation";
 import Selection from "./../selection/Selection";
-import Footer from "./../common/footer";
+// import Footer from "./../common/footer";
 import { Link } from "react-router-dom";
 class IteratePostings extends Component {
   render() {
@@ -111,7 +111,7 @@ class IteratePostings extends Component {
             )}
           </Grid>
         </Grid>
-        <Footer />
+        {/* <Footer /> */}
       </React.Fragment>
     );
   }
