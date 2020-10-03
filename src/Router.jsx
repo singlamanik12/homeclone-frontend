@@ -160,7 +160,7 @@ class Router extends Component {
                 path="/signup"
                 render={(props) => <SignupUI {...props} />}
               />
-              <ProtectedRoute
+              <Route
                 path="/create"
                 render={(props) => <CreatePosting {...props} />}
               />
