@@ -128,10 +128,43 @@ class Information extends Component {
                 style={{ fontFamily: "Noto Sans JP" }}
                 gutterBottom
               >
+                Full Name
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                style={{ width: "100%" }}
+                id="name"
+                label="Full Name"
+                // helperText="e.g. 0123456789 length should be 10"
+                variant="outlined"
+                value={values.name}
+                name="name"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography
+                variant="h6"
+                style={{ fontFamily: "Noto Sans JP" }}
+                gutterBottom
+              >
                 Phone Number
               </Typography>
             </Grid>
             <Grid item xs={12} container>
+              {/* <Grid item xs={12}>
+                <TextField
+                  style={{ width: "100%" }}
+                  id="name"
+                  label="Full Name"
+                  helperText="e.g. 0123456789 length should be 10"
+                  variant="outlined"
+                  value={values.name}
+                  name="name"
+                  onChange={handleChange}
+                />
+              </Grid> */}
               <Grid item xs={2}>
                 <TextField
                   style={{ width: "100%" }}
@@ -183,7 +216,8 @@ class Information extends Component {
                     values.state === "" ||
                     values.streetAddress === "" ||
                     values.region === "" ||
-                    values.phoneNumber === ""
+                    values.phoneNumber === "" ||
+                    values.name === ""
                   }
                 >
                   Next

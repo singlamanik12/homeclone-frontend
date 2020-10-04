@@ -87,7 +87,8 @@ class Selection extends Component {
           <Grid item xs={12} container style={{ marginTop: "10px" }}>
             <Grid item xs={1}></Grid>
             <Grid item xs={5}>
-              <FormControl>
+              {"Select type of housing:   "}
+              <FormControl style={{ marginLeft: "10px", marginBottom: "20px" }}>
                 <NativeSelect
                   value={this.props.typeOfHousing}
                   onChange={this.props.handleChange}
@@ -95,7 +96,7 @@ class Selection extends Component {
                   // className={classes.selectEmpty}
                   inputProps={{ "aria-label": "Type Of Housing" }}
                 >
-                  <option value="All">Select Type</option>
+                  <option value="All">Select</option>
                   <option value={"Full Storey"}>Full Storey</option>
                   <option value={"Apartment"}>Apartment</option>
                   <option value={"Private Room"}>Private Room</option>

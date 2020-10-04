@@ -12,6 +12,7 @@ class CreatePosting extends Component {
   state = {
     step: 1,
     id: "",
+    name: "",
     typeOfHousing: "",
     totalPersonRequired: "",
     city: "",
@@ -66,15 +67,16 @@ class CreatePosting extends Component {
     this.setState({ images });
   };
   handleSubmitPosting = async () => {
-    const { email } = getCurrentUserEmail();
+    // const { email } = getCurrentUserEmail();
     console.log(this.state.images);
     try {
       await http.post(`${url}/newposting`, {
         id: this.state.id,
-        email: email,
+        email: "singlamanik50@gmail.com",
         typeOfHousing: this.state.typeOfHousing,
         totalPersonRequired: this.state.totalPersonRequired,
         city: this.state.city,
+        name: this.state.name,
         state: this.state.state,
         totalBeds: this.state.totalBeds,
         typeOfBathroom: this.state.typeOfBathroom,
@@ -96,7 +98,7 @@ class CreatePosting extends Component {
         date: Date.now(),
       });
 
-      window.location = "/my_postings";
+      window.location = "/";
     } catch (ex) {
       // console.log(ex);
     }
@@ -178,6 +180,7 @@ class CreatePosting extends Component {
       ownerLiving,
       houseNumber,
       title,
+      name,
     } = this.state;
     const values = {
       typeOfHousing,
@@ -201,6 +204,7 @@ class CreatePosting extends Component {
       ownerLiving,
       houseNumber,
       title,
+      name,
     };
 
     return (

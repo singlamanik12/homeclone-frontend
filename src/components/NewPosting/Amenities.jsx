@@ -133,7 +133,7 @@ class Amenities extends Component {
             />
           </Grid>
           <br />
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Typography
               variant="h6"
               style={{ fontFamily: "Noto Sans JP" }}
@@ -141,8 +141,8 @@ class Amenities extends Component {
             >
               Type Of Bathroom
             </Typography>
-          </Grid>
-          <Grid item xs={12}>
+          </Grid> */}
+          {/* <Grid item xs={12}>
             <FormControl variant="outlined" style={{ width: "100%" }}>
               <InputLabel id="demo-simple-select-outlined-label">
                 Type of Bathroom
@@ -164,7 +164,7 @@ class Amenities extends Component {
                 <MenuItem value={"Shared"}>Shared</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
+          </Grid> */}
           <br />
           <br />
           <Grid item xs={12}>
@@ -233,7 +233,7 @@ class Amenities extends Component {
                 type="button"
                 className="btn btn-primary"
                 onClick={nextStep}
-                disabled={values.price === "" || values.typeOfBathroom === ""}
+                disabled={values.price === ""}
               >
                 Next
               </button>
