@@ -9,7 +9,7 @@ class SharePosting extends Component {
     const { data } = this.props;
     const id = data._id;
     console.log(data);
-    const url = `https://www.rooftail.com/posting_details/${id}`;
+    const url = `https://www.rooftail.com/housing_details/${id}`;
     return (
       <Grid item xs={12}>
         <Typography variant="body2" style={{ fontFamily: "Noto Sans JP" }}>
