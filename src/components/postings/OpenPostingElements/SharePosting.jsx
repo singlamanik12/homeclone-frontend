@@ -8,7 +8,8 @@ class SharePosting extends Component {
   render() {
     const { data } = this.props;
     const id = data._id;
-    const url = "https://www.rooftail.com/posting_details/" + id;
+    console.log(data);
+    const url = `https://www.rooftail.com/posting_details/${id}`;
     return (
       <Grid item xs={12}>
         <Typography variant="body2" style={{ fontFamily: "Noto Sans JP" }}>
@@ -17,7 +18,7 @@ class SharePosting extends Component {
         <br />
         <WhatsappShareButton
           url={url}
-          title="Rooftail - Place to find rooms, apartments , basements"
+          title={`${data.typeOfHousing} available in ${data.city}, ${data.state} for $${data.price}. \nRooftail - Place to find rooms, apartments , basements.`}
           separator=""
         >
           {" "}
@@ -25,7 +26,7 @@ class SharePosting extends Component {
         </WhatsappShareButton>
         <FacebookShareButton
           url={url}
-          title="Rooftail - Place to find rooms, apartments , basements"
+          title={`${data.typeOfHousing} available in ${data.city}, ${data.state} for $${data.price}. Click for details.\n Rooftail - Place to find rooms, apartments , basements.`}
           separator=""
         >
           {" "}

@@ -95,7 +95,6 @@ class CreatePosting extends Component {
         region: this.state.region,
         images: this.state.images,
         title: this.state.title,
-        date: Date.now(),
       });
 
       window.location = "/";

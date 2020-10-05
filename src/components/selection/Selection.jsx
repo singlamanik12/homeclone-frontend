@@ -70,6 +70,7 @@ class Selection extends Component {
                   </MenuItem>
                   <MenuItem value={"North"}>North</MenuItem>
                   <MenuItem value={"South"}>South</MenuItem>
+                  <MenuItem value={"Downtown"}>Downtown (Central)</MenuItem>
                   <MenuItem value={"East"}>East</MenuItem>
                   <MenuItem value={"West"}>West</MenuItem>
                 </Select>
